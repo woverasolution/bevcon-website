@@ -42,6 +42,9 @@ export default function NavbarOption3() {
             <Link href="/option-3" className="text-xs font-bold text-white hover:text-[#C08055] transition-colors uppercase tracking-widest border-b-2 border-[#C08055] pb-1">
               Option 3
             </Link>
+            <Link href="/option-4" className="text-xs font-bold text-white/70 hover:text-[#C08055] transition-colors uppercase tracking-widest">
+              Option 4
+            </Link>
             <Link href="#contact" className="border-2 border-[#C08055] text-[#C08055] hover:bg-[#C08055] hover:text-white px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 font-[family-name:var(--font-montserrat)]">
               Partner with Us
             </Link>
