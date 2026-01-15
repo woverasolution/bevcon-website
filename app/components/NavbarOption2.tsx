@@ -46,6 +46,9 @@ export default function NavbarOption2() {
             <Link href="/option-4" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
               Option 4
             </Link>
+            <Link href="/option-5" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+              Option 5
+            </Link>
             <Link href="#contact" className="px-6 py-2 bg-[#2C74B3] text-white text-sm font-bold rounded-sm hover:bg-[#205295] transition-colors uppercase tracking-wide">
               Partner with Us
             </Link>

@@ -56,12 +56,12 @@ export default function ServicesGridOption3() {
           {/* Sticky Header Column */}
           <div className="lg:sticky lg:top-24">
             <h2 className="text-5xl font-[family-name:var(--font-montserrat)] font-black text-[#1C2331] uppercase leading-tight mb-8">
-              The <span className="text-[#C08055]">BevCon</span><br />Standard.
+              The <span className="text-primary">BevCon</span><br />Standard.
             </h2>
             <p className="text-[#1C2331]/80 font-[family-name:var(--font-open-sans)] text-lg leading-relaxed mb-8">
               Seven distinct pillars of excellence. We combine deep industry knowledge with rigorous execution standards to deliver predictable success.
             </p>
-            <a href="#contact" className="inline-flex items-center text-[#C08055] font-bold uppercase tracking-widest text-sm hover:text-[#1C2331] transition-colors">
+            <a href="#contact" className="inline-flex items-center text-primary font-bold uppercase tracking-widest text-sm hover:text-[#1C2331] transition-colors">
               Start a Project <span className="ml-2">→</span>
             </a>
           </div>
@@ -70,9 +70,9 @@ export default function ServicesGridOption3() {
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {services.map((service, index) => (
               <div key={index} className="group">
-                <div className="flex items-baseline gap-4 mb-4 border-b border-[#1C2331]/10 pb-4 group-hover:border-[#C08055] transition-colors duration-300">
-                  <span className="text-[#C08055] font-bold text-sm">0{index + 1}</span>
-                  <h3 className="text-2xl font-[family-name:var(--font-montserrat)] font-bold text-[#1C2331] group-hover:text-[#C08055] transition-colors">
+                <div className="flex items-baseline gap-4 mb-4 border-b border-[#1C2331]/10 pb-4 group-hover:border-primary transition-colors duration-300">
+                  <span className="text-primary font-bold text-sm">0{index + 1}</span>
+                  <h3 className="text-2xl font-[family-name:var(--font-montserrat)] font-bold text-[#1C2331] group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                 </div>

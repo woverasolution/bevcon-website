@@ -65,7 +65,7 @@ export default function HeroOption3() {
               <AnimatePresence mode="popLayout">
                 <motion.span
                   key={titleNumber}
-                  className="absolute left-0 font-bold text-[#C08055]"
+                  className="absolute left-0 font-bold text-primary"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}

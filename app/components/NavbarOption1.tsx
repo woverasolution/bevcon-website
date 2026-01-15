@@ -33,6 +33,9 @@ export default function Navbar() {
             <Link href="/option-4" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors dark:text-gray-300">
               Option 4
             </Link>
+            <Link href="/option-5" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors dark:text-gray-300">
+              Option 5
+            </Link>
             <Link href="#contact" className="btn-primary">
               Partner with Us
             </Link>

@@ -17,17 +17,20 @@ export default function NavbarOption4() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium text-[#4A5568] hover:text-[#C9975B] transition-colors">
+            <Link href="/" className="text-sm font-medium text-[#4A5568] hover:text-primary transition-colors">
               Option 1
             </Link>
-            <Link href="/option-2" className="text-sm font-medium text-[#4A5568] hover:text-[#C9975B] transition-colors">
+            <Link href="/option-2" className="text-sm font-medium text-[#4A5568] hover:text-primary transition-colors">
               Option 2
             </Link>
-            <Link href="/option-3" className="text-sm font-medium text-[#4A5568] hover:text-[#C9975B] transition-colors">
+            <Link href="/option-3" className="text-sm font-medium text-[#4A5568] hover:text-primary transition-colors">
               Option 3
             </Link>
-            <Link href="/option-4" className="text-sm font-medium text-[#2D3748] border-b-2 border-[#C9975B] hover:text-[#C9975B] transition-colors">
+            <Link href="/option-4" className="text-sm font-medium text-[#2D3748] border-b-2 border-primary hover:text-primary transition-colors">
               Option 4
+            </Link>
+            <Link href="/option-5" className="text-sm font-medium text-[#4A5568] hover:text-primary transition-colors">
+              Option 5
             </Link>
             <Link href="#contact" className="border border-[#2D3748] text-[#2D3748] hover:bg-[#2D3748] hover:text-white px-6 py-2 text-sm font-medium transition-all duration-300">
               Contact Us
@@ -36,7 +39,7 @@ export default function NavbarOption4() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button className="text-[#2D3748] hover:text-[#C9975B] p-2">
+            <button className="text-[#2D3748] hover:text-primary p-2">
               <Menu size={24} />
             </button>
           </div>

@@ -6,10 +6,10 @@
   --foreground: #111111;
   
   /* Brand Colors */
-  --primary: #C5A059; /* Metallic Gold/Bronze */
-  --primary-hover: #b08d4b;
-  --secondary: #2C3E50; /* Industrial Slate */
-  --accent: #E5E7EB; /* Light Grey for backgrounds */
+  --primary: #455660; /* Industrial Slate */
+  --primary-hover: #3b4b53;
+  --secondary: #9a9a9a; /* Steel Grey */
+  --accent: #ffbb3a; /* Safety Amber */
   
   /* Typography */
   --font-sans: var(--font-geist-sans);

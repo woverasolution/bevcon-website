@@ -71,7 +71,7 @@ export default function ServicesGridOption4() {
                 {/* Icon */}
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 flex items-center justify-center">
-                    <service.icon className="w-12 h-12 text-[#C9975B]" strokeWidth={1.5} />
+                  <service.icon className="w-12 h-12 text-primary" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -84,7 +84,7 @@ export default function ServicesGridOption4() {
                 <div className="text-[#4A5568] text-sm leading-relaxed space-y-1">
                   {service.items.map((item, idx) => (
                     <div key={idx} className="flex items-start justify-center gap-2">
-                      <span className="text-[#C9975B] mt-1">•</span>
+                      <span className="text-primary mt-1">•</span>
                       <span>{item}</span>
                     </div>
                   ))}
@@ -164,7 +164,7 @@ export default function ServicesGridOption4() {
         <div className="container-width">
           <div className="bg-[#3D4653] p-12 max-w-3xl ml-auto relative">
             {/* Quote Icon */}
-            <div className="text-[#C9975B] text-6xl font-serif mb-6">&ldquo;</div>
+            <div className="text-primary text-6xl font-serif mb-6">&ldquo;</div>
 
             {/* Quote Text */}
             <blockquote className="text-white text-2xl font-light leading-relaxed mb-8">

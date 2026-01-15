@@ -15,16 +15,16 @@ const openSans = Open_Sans({
 
 export default function NavbarOption3() {
   return (
-    <nav className={`fixed w-full bg-[#1C2331]/95 backdrop-blur-sm z-50 border-b border-[#C08055]/20 ${montserrat.variable} ${openSans.variable}`}>
+    <nav className={`fixed w-full bg-[#1C2331]/95 backdrop-blur-sm z-50 border-b border-primary/20 ${montserrat.variable} ${openSans.variable}`}>
       <div className="container-width">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-3">
               <span className="text-2xl font-black tracking-tight text-white font-[family-name:var(--font-montserrat)] uppercase">
-                Bev<span className="text-[#C08055]">Con</span>
+                Bev<span className="text-primary">Con</span>
               </span>
-              <span className="hidden sm:block w-px h-8 bg-[#C08055] mx-2"></span>
+              <span className="hidden sm:block w-px h-8 bg-primary mx-2"></span>
               <span className="hidden sm:block text-[10px] font-bold text-white/80 uppercase tracking-[0.2em] max-w-[140px] leading-relaxed font-[family-name:var(--font-montserrat)]">
                 Next Gen<br/>Solutions
               </span>
@@ -33,26 +33,29 @@ export default function NavbarOption3() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10 font-[family-name:var(--font-open-sans)]">
-            <Link href="/" className="text-xs font-bold text-white/70 hover:text-[#C08055] transition-colors uppercase tracking-widest">
+            <Link href="/" className="text-xs font-bold text-white/70 hover:text-primary transition-colors uppercase tracking-widest">
               Option 1
             </Link>
-            <Link href="/option-2" className="text-xs font-bold text-white/70 hover:text-[#C08055] transition-colors uppercase tracking-widest">
+            <Link href="/option-2" className="text-xs font-bold text-white/70 hover:text-primary transition-colors uppercase tracking-widest">
               Option 2
             </Link>
-            <Link href="/option-3" className="text-xs font-bold text-white hover:text-[#C08055] transition-colors uppercase tracking-widest border-b-2 border-[#C08055] pb-1">
+            <Link href="/option-3" className="text-xs font-bold text-white hover:text-primary transition-colors uppercase tracking-widest border-b-2 border-primary pb-1">
               Option 3
             </Link>
-            <Link href="/option-4" className="text-xs font-bold text-white/70 hover:text-[#C08055] transition-colors uppercase tracking-widest">
+            <Link href="/option-4" className="text-xs font-bold text-white/70 hover:text-primary transition-colors uppercase tracking-widest">
               Option 4
             </Link>
-            <Link href="#contact" className="border-2 border-[#C08055] text-[#C08055] hover:bg-[#C08055] hover:text-white px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 font-[family-name:var(--font-montserrat)]">
+            <Link href="/option-5" className="text-xs font-bold text-white/70 hover:text-primary transition-colors uppercase tracking-widest">
+              Option 5
+            </Link>
+            <Link href="#contact" className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 font-[family-name:var(--font-montserrat)]">
               Partner with Us
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button className="text-white hover:text-[#C08055] p-2">
+            <button className="text-white hover:text-primary p-2">
               <Menu size={24} />
             </button>
           </div>
