@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowRight, PlayCircle, ChevronDown, CheckCircle2 } from "lucide-react";
+import { PlayCircle, ChevronDown } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
 // --- Animated Components ---
@@ -24,7 +24,7 @@ const AnimatedTextWord = ({ text, className, delay = 0 }: { text: string; classN
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -33,7 +33,7 @@ const AnimatedTextWord = ({ text, className, delay = 0 }: { text: string; classN
       opacity: 0,
       y: 20,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
