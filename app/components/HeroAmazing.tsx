@@ -25,7 +25,7 @@ const AnimatedTitle = ({ text, className }: { text: string; className?: string }
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -34,7 +34,7 @@ const AnimatedTitle = ({ text, className }: { text: string; className?: string }
       opacity: 0,
       y: 20,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
