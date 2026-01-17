@@ -1,4 +1,4 @@
-import NavbarOption5 from "../../components/NavbarOption5";
+import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { getProfileById, allProfiles } from "../../lib/network-data";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarOption5 />
+      <Navbar />
       <main className="flex-grow pt-20">
         <section className="section-padding bg-white">
           <div className="container-width">

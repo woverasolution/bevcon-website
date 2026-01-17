@@ -18,8 +18,7 @@ export default function Footer() {
               className="h-9 w-auto"
             />
             <p className="text-sm leading-relaxed max-w-xs text-slate-300">
-              Concept, Construction & Confidence.
-              <br />
+              
               Partnering with investors to deliver next-generation beverage projects worldwide.
             </p>
           </div>

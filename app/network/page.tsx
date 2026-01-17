@@ -1,4 +1,4 @@
-import NavbarOption5 from "../components/NavbarOption5";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getProfilesByLevel, type ProfileLevel, type NetworkProfile } from "../lib/network-data";
 import Link from "next/link";
@@ -90,7 +90,7 @@ function LevelSection({ level, title }: { level: ProfileLevel; title: string }) 
 export default function NetworkPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarOption5 />
+      <Navbar />
       <main className="flex-grow pt-20">
         <section className="section-padding bg-white">
           <div className="container-width">

@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { PlayCircle, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
 // --- Animated Components ---
@@ -216,15 +216,16 @@ export default function HeroLightAnimated() {
              transition={{ delay: 1, duration: 0.6 }}
              className="flex flex-wrap items-center gap-4 lg:gap-5 pt-1 lg:pt-2"
           >
-            <StaticButton className="btn-primary shadow-glow hover:shadow-glow-primary px-6 py-3 lg:px-8 lg:py-4 text-sm lg:text-base bg-[#455660] hover:bg-[#3b4b53] rounded-sm uppercase tracking-wider font-bold">
-              Start Your Project
-            </StaticButton>
-            
-            <StaticButton className="group flex items-center gap-3 px-5 py-3 lg:px-6 lg:py-4 text-sm font-semibold text-[#455660] transition-colors hover:text-[#3b4b53] uppercase tracking-wider">
-               <div className="relative flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-full border border-[#9a9a9a]/30 bg-white shadow-sm transition-transform group-hover:scale-110">
-                <PlayCircle className="h-4 w-4 lg:h-5 lg:w-5 text-[#ffbb3a] fill-[#ffbb3a]/10" />
-              </div>
-              <span className="underline-offset-4 group-hover:underline">View Portfolio</span>
+            <StaticButton 
+              className="btn-primary px-6 py-3 lg:px-8 lg:py-4 text-sm lg:text-base bg-[#455660] hover:bg-[#3b4b53] rounded-sm uppercase tracking-wider font-bold"
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Discuss Your Project
             </StaticButton>
           </motion.div>
 

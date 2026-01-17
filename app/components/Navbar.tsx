@@ -39,31 +39,24 @@ export default function Navbar() {
             transition={{ delay: 0.3 }}
           >
             <Link
-              href="#concept"
+              href="/#concept"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
               Services
             </Link>
             <Link
-              href="#consulting"
+              href="/network"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              Consulting
+              Our Network
             </Link>
+            
             <Link
-              href="#contact"
+              href="/#contact"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
               Contact
             </Link>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="#contact"
-                className="rounded-sm border border-slate-900 px-5 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
-              >
-                Partner With Us
-              </Link>
-            </motion.div>
           </motion.div>
 
           <button className="md:hidden" aria-label="Open menu">
