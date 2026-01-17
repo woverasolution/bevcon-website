@@ -1,37 +1,71 @@
 import NavbarOption5 from "../components/NavbarOption5";
 import Footer from "../components/Footer";
-import { allProfiles, getProfilesByLevel, type ProfileLevel } from "../lib/network-data";
+import { getProfilesByLevel, type ProfileLevel, type NetworkProfile } from "../lib/network-data";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { FlippingCard } from "../components/ui/flipping-card";
 
-function ProfileTeaserCard({ profile }: { profile: { id: string; name: string; role: string; teaserServices: string } }) {
+const PROFILE_IMAGES = [
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+  "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=80",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80",
+];
+
+function getProfileImage(id: string) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % PROFILE_IMAGES.length;
+  return PROFILE_IMAGES[index];
+}
+
+function NetworkProfileCard({ profile }: { profile: NetworkProfile }) {
+  const imageSrc = getProfileImage(profile.id);
+
   return (
-    <Link
-      href={`/network/${profile.id}`}
-      className="group block rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_-30px_rgba(15,23,42,0.55)]"
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold text-slate-900 mb-2 group-hover:text-primary transition-colors">
-            {profile.name}
-          </h3>
-          <p className="text-base font-semibold text-slate-700 mb-3">
-            {profile.role}
-          </p>
-          <p className="text-sm text-slate-600 leading-relaxed">
+    <FlippingCard
+      className="w-full h-[400px]"
+      frontContent={
+        <div className="flex flex-col h-full w-full">
+          <div className="h-3/5 w-full relative overflow-hidden rounded-t-lg">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={imageSrc} 
+              alt={profile.name} 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+          <div className="p-4 flex flex-col justify-center flex-grow bg-slate-50 rounded-b-lg">
+            <h3 className="text-lg font-bold text-slate-900">{profile.name}</h3>
+            <p className="text-sm font-medium text-slate-600 mt-1">{profile.role}</p>
+          </div>
+        </div>
+      }
+      backContent={
+        <div className="flex flex-col h-full w-full p-6 items-center justify-center text-center bg-slate-50 rounded-lg">
+          <p className="text-sm leading-relaxed mb-6 text-slate-700">
             {profile.teaserServices}
           </p>
+          <Link
+            href={`/network/${profile.id}`}
+            className="inline-flex items-center justify-center px-6 py-2 bg-slate-900 text-white text-sm font-medium rounded-md hover:bg-slate-800 transition-colors"
+          >
+            Learn More
+          </Link>
         </div>
-        <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
-      </div>
-      <div className="mt-6 h-px w-16 bg-primary/60 group-hover:w-24 transition-all" />
-    </Link>
+      }
+    />
   );
 }
 
 function LevelSection({ level, title }: { level: ProfileLevel; title: string }) {
   const profiles = getProfilesByLevel(level);
-  
+
   if (profiles.length === 0) return null;
 
   return (
@@ -44,9 +78,9 @@ function LevelSection({ level, title }: { level: ProfileLevel; title: string }) 
           {title}
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {profiles.map((profile) => (
-          <ProfileTeaserCard key={profile.id} profile={profile} />
+          <NetworkProfileCard key={profile.id} profile={profile} />
         ))}
       </div>
     </section>
