@@ -20,37 +20,34 @@ export default function NavbarOption5() {
 
           <div className="hidden items-center gap-8 md:flex">
             <Link
-              href="/"
+              href="#services"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              Option 1
+              Services
             </Link>
             <Link
-              href="/option-2"
+              href="/network"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              Option 2
+              Our Network
             </Link>
             <Link
-              href="/option-3"
+              href="#expertise"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              Option 3
+              Expertise
             </Link>
             <Link
-              href="/option-4"
+              href="#contact"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              Option 4
-            </Link>
-            <Link href="/option-5" className="text-sm font-semibold text-slate-900">
-              Option 5
+              Contact
             </Link>
             <Link
               href="#contact"
               className="rounded-sm border border-slate-900 px-5 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
             >
-              Contact Us
+              Partner With Us
             </Link>
           </div>
 

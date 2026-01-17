@@ -1,15 +1,29 @@
-import NavbarOption1 from "./components/NavbarOption1";
-import Hero from "./components/Hero";
-import ServicesGridOption1 from "./components/ServicesGridOption1";
+import Navbar from "./components/Navbar";
+import HeroLightAnimated from "./components/HeroLightAnimated"; // New Light Animated Hero
+import BeverageConcept from "./components/BeverageConcept";
+import BeverageConstruction from "./components/BeverageConstruction";
+import BeverageContracts from "./components/BeverageContracts";
+import BeverageConfidence from "./components/BeverageConfidence";
+import BeverageConsulting from "./components/BeverageConsulting";
+import BeverageControl from "./components/BeverageControl";
+import BeverageConnect from "./components/BeverageConnect";
+import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarOption1 />
+      <Navbar />
       <main className="flex-grow">
-        <Hero />
-        <ServicesGridOption1 />
+        <HeroLightAnimated />
+        <BeverageConcept />
+        <BeverageConstruction />
+        <BeverageContracts />
+        <BeverageConfidence />
+        <BeverageConsulting />
+        <BeverageControl />
+        <BeverageConnect />
+        <CTASection />
       </main>
       <Footer />
     </div>
