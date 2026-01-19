@@ -58,7 +58,7 @@ export default function BeverageConcept() {
       <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 overflow-hidden">
         <motion.div className="relative w-full h-full" style={{ y: imageY, scale: 1.1 }}>
           <Image
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80"
+            src="/images/beverage1.jpg"
             alt="Beverage concept planning and engineering"
             fill
             className="object-cover opacity-10 lg:opacity-100"
