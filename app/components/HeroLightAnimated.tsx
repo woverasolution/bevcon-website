@@ -3,7 +3,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
 // --- Animated Components ---
@@ -237,12 +236,24 @@ export default function HeroLightAnimated() {
              className="pt-6 lg:pt-8 border-t border-[#9a9a9a]/30 flex flex-col sm:flex-row gap-5 sm:items-center"
            >
               <span className="text-[10px] lg:text-xs uppercase tracking-widest text-[#9a9a9a] font-medium">Trusted by Industry Leaders</span>
-              <div className="flex gap-4 opacity-40 grayscale transition-all hover:grayscale-0 hover:opacity-100">
-                 {/* Placeholder Logos */}
-                 <div className="h-5 w-16 lg:h-6 lg:w-20 bg-[#455660]/20 rounded"></div>
-                 <div className="h-5 w-16 lg:h-6 lg:w-20 bg-[#455660]/20 rounded"></div>
-                 <div className="h-5 w-16 lg:h-6 lg:w-20 bg-[#455660]/20 rounded"></div>
-              </div>
+             <div className="flex gap-6 items-center opacity-50 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100">
+                <div className="relative h-5 w-20 lg:h-7 lg:w-24">
+                  <Image 
+                    src="/logos/coca-cola-2021.svg" 
+                    alt="Coca-Cola" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+                <div className="relative h-5 w-20 lg:h-7 lg:w-24">
+                  <Image 
+                    src="/logos/heineken.svg" 
+                    alt="Heineken" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+             </div>
            </motion.div>
 
         </motion.div>
@@ -252,22 +263,6 @@ export default function HeroLightAnimated() {
 
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-      >
-        <span className="text-[10px] uppercase tracking-widest text-[#9a9a9a]">Scroll to Explore</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown className="h-5 w-5 text-[#9a9a9a]" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
