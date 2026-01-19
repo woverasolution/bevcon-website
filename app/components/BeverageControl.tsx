@@ -11,8 +11,21 @@ const kpiCards = [
 
 export default function BeverageControl() {
   return (
-    <section id="control" className="py-20 md:py-32 bg-[#F7F4F0] overflow-hidden">
-      <div className="container-width">
+    <section id="control" className="relative py-20 md:py-32 bg-[#F7F4F0] overflow-hidden">
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          06
+        </span>
+      </motion.div>
+
+      <div className="container-width relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left - Dashboard Mockup */}
           <motion.div
@@ -24,11 +37,6 @@ export default function BeverageControl() {
           >
             {/* Dashboard Container */}
             <div className="relative bg-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
-              {/* Section Number */}
-              <span className="absolute top-4 right-4 text-[60px] font-bold text-white/5 leading-none select-none">
-                06
-              </span>
-
               {/* Dashboard Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">

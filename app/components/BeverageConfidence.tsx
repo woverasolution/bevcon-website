@@ -41,9 +41,22 @@ export default function BeverageConfidence() {
     <section
       ref={sectionRef}
       id="confidence"
-      className="py-20 md:py-32 bg-white overflow-hidden"
+      className="relative py-20 md:py-32 bg-white overflow-hidden"
     >
-      <div className="container-width">
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          04
+        </span>
+      </motion.div>
+
+      <div className="container-width relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left - Image */}
           <motion.div
@@ -53,17 +66,6 @@ export default function BeverageConfidence() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            {/* Section Number */}
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute -top-8 -left-4 text-[120px] lg:text-[160px] font-bold text-slate-100 leading-none select-none z-0"
-            >
-              04
-            </motion.span>
-
             {/* Main Image */}
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl z-10">
               <motion.div className="absolute inset-0" style={{ y: imageY }}>

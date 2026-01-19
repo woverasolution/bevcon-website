@@ -6,8 +6,21 @@ import { Scale, Shield, FileCheck } from "lucide-react";
 
 export default function BeverageContracts() {
   return (
-    <section id="contracts" className="py-20 md:py-28 bg-[#F7F4F0]">
-      <div className="container-width">
+    <section id="contracts" className="relative py-20 md:py-28 bg-[#F7F4F0] overflow-hidden">
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          03
+        </span>
+      </motion.div>
+
+      <div className="container-width relative z-10">
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(160px,auto)]">
           {/* Hero Image Cell - Large */}
@@ -25,13 +38,6 @@ export default function BeverageContracts() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-
-            {/* Section Number */}
-            <div className="absolute top-6 left-6">
-              <span className="text-[80px] lg:text-[100px] font-bold text-white/15 leading-none select-none">
-                03
-              </span>
-            </div>
 
             {/* Stat Overlay */}
             <motion.div

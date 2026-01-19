@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import HeroLightAnimated from "./components/HeroLightAnimated"; // New Light Animated Hero
+import WhatWeDo from "./components/WhatWeDo";
 import BeverageConcept from "./components/BeverageConcept";
 import BeverageConstruction from "./components/BeverageConstruction";
 import BeverageContracts from "./components/BeverageContracts";
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-grow">
         <HeroLightAnimated />
+        <WhatWeDo />
         <BeverageConcept />
         <BeverageConstruction />
         <BeverageContracts />

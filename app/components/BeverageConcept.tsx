@@ -3,20 +3,35 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { FileSearch, PiggyBank, Rocket, CheckCircle2 } from "lucide-react";
+import { 
+  TrendingUp, 
+  Landmark, 
+  Settings, 
+  CheckCircle2
+} from "lucide-react";
 
-const keyPoints = [
-  { icon: FileSearch, label: "Market & Financial Modeling" },
-  { icon: PiggyBank, label: "Lender-Ready Documentation" },
-  { icon: Rocket, label: "Execution-Ready Concepts" },
+const conceptPillars = [
+  {
+    icon: TrendingUp,
+    title: "Market Strategy",
+    description: "Demand realism, pricing logic, and achievable market positioning tailored to your geography."
+  },
+  {
+    icon: Landmark,
+    title: "Bankability",
+    description: "Financial models designed for international lenders, integrating CAPEX, OPEX, and sensitivity analysis."
+  },
+  {
+    icon: Settings,
+    title: "Technical Concept",
+    description: "Process selection, site layout, and utility planning ensuring technical and commercial alignment."
+  }
 ];
 
-const financingInstitutions = [
-  "Afrexim Bank",
-  "DEG / KfW",
-  "BOAD",
-  "IFU",
-  "Ecobank",
+const highlights = [
+  { title: "Lender Accepted", desc: "Investment-grade studies trusted by major DFIs & ECAs" },
+  { title: "Risk Reduction", desc: "Consistent alignment of market, technical & financial data" },
+  { title: "Execution Ready", desc: "Concepts structured to move directly into engineering" },
 ];
 
 export default function BeverageConcept() {
@@ -26,148 +41,139 @@ export default function BeverageConcept() {
     offset: ["start end", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const contentY = useTransform(scrollYProgress, [0.1, 0.6], [50, 0]);
+  const opacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
 
   return (
     <section
       ref={sectionRef}
       id="concept"
-      className="relative min-h-[90vh] bg-white overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-slate-50 flex items-center py-20 lg:py-0"
     >
-      {/* Split Layout Container */}
-      <div className="grid lg:grid-cols-[1.1fr_0.9fr] min-h-[90vh]">
-        {/* Left Side - Image */}
-        <div className="relative h-[50vh] lg:h-auto overflow-hidden">
-          <motion.div
-            className="absolute inset-0 scale-110"
-            style={{ y: imageY }}
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-2/3 h-full bg-white z-0 hidden lg:block" />
+      
+      {/* Dynamic Background Image - Right Side */}
+      <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 overflow-hidden">
+        <motion.div className="relative w-full h-full" style={{ y: imageY, scale: 1.1 }}>
+          <Image
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80"
+            alt="Beverage concept planning and engineering"
+            fill
+            className="object-cover opacity-10 lg:opacity-100"
+            priority
+          />
+          {/* Gradient Overlay for blending */}
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-slate-50 lg:via-white/20 lg:to-slate-50" />
+        </motion.div>
+      </div>
+
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-10"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          01
+        </span>
+      </motion.div>
+
+      <div className="container-width w-full relative z-10">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
+          
+          {/* Left Column: Main Content */}
+          <motion.div 
+            style={{ y: contentY, opacity }}
+            className="flex flex-col gap-8"
           >
-            <Image
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80"
-              alt="Engineers reviewing industrial plans"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
+            <div className="space-y-4">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight"
+              >
+                Beverage
+                <span className="block text-[#ffbb3a]">Concept</span>
+              </motion.h2>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl"
+              >
+                Turning ideas into <span className="text-slate-900 font-medium">robust, bankable concepts</span> by combining market insight, financial modelling, and practical engineering.
+              </motion.p>
+            </div>
 
-          {/* Gradient overlay for text readability on mobile */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent lg:hidden" />
-
-          {/* Right edge gradient blend */}
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent hidden lg:block" />
-
-          {/* Section Number Overlay */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12"
-          >
-            <span className="text-[120px] lg:text-[180px] font-bold text-white/20 leading-none select-none">
-              01
-            </span>
-          </motion.div>
-        </div>
-
-        {/* Right Side - Content */}
-        <motion.div
-          className="relative flex items-center px-6 py-12 lg:px-16 lg:py-20"
-          style={{ y: contentY }}
-        >
-          <div className="max-w-xl">
-            {/* Main Headline */}
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1]"
-            >
-              Beverage
-              <span className="block text-primary">Concept</span>
-            </motion.h2>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-4 text-xl md:text-2xl font-semibold text-accent"
-            >
-              Bankable Feasibility
-            </motion.p>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-4 text-lg text-slate-600 leading-relaxed"
-            >
-              Investment-grade concepts that move directly into execution.
-            </motion.p>
-
-            {/* Key Points - Icon + Label Only */}
+            {/* Strategic Pillars Grid */}
+            <div className="grid sm:grid-cols-3 gap-4 mt-4">
+              {conceptPillars.map((pillar, index) => (
+                <motion.div
+                  key={pillar.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[#ffbb3a]/30 transition-all group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-[#ffbb3a]/10 flex items-center justify-center mb-4 group-hover:bg-[#ffbb3a] transition-colors">
+                    <pillar.icon className="w-5 h-5 text-[#ffbb3a] group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-2">{pillar.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{pillar.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-10 space-y-4"
+              transition={{ delay: 0.6 }}
+              className="pt-6 border-t border-slate-200"
             >
-              {keyPoints.map((point, index) => (
+               <p className="text-sm text-slate-400 uppercase tracking-widest mb-4">Trusted by Financing Institutions</p>
+               <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-500">
+                  {["Afrexim Bank", "DEG / KfW", "BOAD", "IFU", "Euler Hermes"].map(bank => (
+                    <span key={bank} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#ffbb3a]" /> {bank}
+                    </span>
+                  ))}
+               </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column: Strategic Outcomes (Overlapping the image area on desktop) */}
+          <div className="relative hidden lg:block">
+            <div className="relative space-y-6 bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-100 shadow-xl ml-8">
+              {highlights.map((item, index) => (
                 <motion.div
-                  key={point.label}
-                  initial={{ opacity: 0, x: -20 }}
+                  key={item.title}
+                  initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-4"
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.15 }}
+                  className="relative pl-6 border-l-2 border-slate-200 hover:border-[#ffbb3a] transition-colors group py-1"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                    <point.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <span className="text-base font-medium text-slate-700">
-                    {point.label}
-                  </span>
+                  <h4 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#ffbb3a] transition-colors">
+                    {item.title}
+                  </h4>
+                  <p className="text-slate-500 text-sm">
+                    {item.desc}
+                  </p>
                 </motion.div>
               ))}
-            </motion.div>
-
-            {/* Trust Badges - Financing Institutions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-12 pt-8 border-t border-slate-200"
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400 mb-4">
-                Trusted by Leading Institutions
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {financingInstitutions.map((institution, i) => (
-                  <motion.span
-                    key={institution}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.8 + i * 0.05 }}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600"
-                  >
-                    <CheckCircle2 className="h-3 w-3 text-accent" />
-                    {institution}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

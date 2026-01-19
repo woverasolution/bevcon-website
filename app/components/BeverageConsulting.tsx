@@ -17,9 +17,22 @@ export default function BeverageConsulting() {
   return (
     <section
       id="consulting"
-      className="py-20 md:py-32 bg-gradient-to-b from-[#F7F4F0] to-white overflow-hidden"
+      className="relative py-20 md:py-32 bg-gradient-to-b from-[#F7F4F0] to-white overflow-hidden"
     >
-      <div className="container-width">
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          05
+        </span>
+      </motion.div>
+
+      <div className="container-width relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,17 +55,6 @@ export default function BeverageConsulting() {
 
         {/* Radial Layout */}
         <div className="relative max-w-4xl mx-auto">
-          {/* Section Number - Background */}
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] md:text-[300px] font-bold text-slate-100 leading-none select-none pointer-events-none"
-          >
-            05
-          </motion.span>
-
           {/* Central Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

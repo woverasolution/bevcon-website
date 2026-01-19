@@ -13,7 +13,20 @@ const assignmentTypes = [
 export default function BeverageConnect() {
   return (
     <section id="connect" className="py-20 md:py-32 bg-white relative overflow-hidden">
-      <div className="container-width">
+      {/* Section Number */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
+      >
+        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
+          07
+        </span>
+      </motion.div>
+
+      <div className="container-width relative z-10">
         {/* Asymmetric Image Gallery Grid */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[120px] md:auto-rows-[150px]">
           {/* Large Image - Left */}
@@ -31,17 +44,6 @@ export default function BeverageConnect() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-
-            {/* Section Number */}
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute top-4 left-4 text-[80px] font-bold text-white/20 leading-none select-none"
-            >
-              07
-            </motion.span>
           </motion.div>
 
           {/* Top Right Image */}
