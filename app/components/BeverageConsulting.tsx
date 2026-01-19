@@ -1,191 +1,164 @@
 "use client";
 
-import { Search, Factory, Package, Shield, Zap, Wrench, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { Factory, Package, Shield, Zap, Wrench, BarChart3 } from "lucide-react";
 
 const auditCategories = [
-  {
-    title: "Plant & Technology Audits",
-    audits: ["Plant Audit", "Technology Audit"],
-    icon: Factory,
-  },
-  {
-    title: "Production & Packaging Audits",
-    audits: ["Line Audit", "Process Audit"],
-    icon: Package,
-  },
-  {
-    title: "Quality & Compliance Audits",
-    audits: ["Quality Assurance & Quality Control Audit", "Food Safety & Hygiene Audit"],
-    icon: Shield,
-  },
-  {
-    title: "Utilities & Infrastructure Audits",
-    audits: ["Utility Audit", "Energy & Sustainability Audit"],
-    icon: Zap,
-  },
-  {
-    title: "Maintenance & Asset Management Audits",
-    audits: ["Maintenance Organisation Audit", "Maintenance Audit", "Asset Lifecycle & Spare Parts Audit"],
-    icon: Wrench,
-  },
-  {
-    title: "Commercial & Performance Audits",
-    audits: ["OPEX Audit", "Capacity & Throughput Audit", "Operational Readiness Audit"],
-    icon: CheckCircle2,
-  },
+  { icon: Factory, label: "Plant & Technology", color: "bg-blue-500" },
+  { icon: Package, label: "Production", color: "bg-green-500" },
+  { icon: Shield, label: "Quality", color: "bg-purple-500" },
+  { icon: Zap, label: "Utilities", color: "bg-yellow-500" },
+  { icon: Wrench, label: "Maintenance", color: "bg-orange-500" },
+  { icon: BarChart3, label: "Performance", color: "bg-red-500" },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.3,
-    },
-  }),
-};
 
 export default function BeverageConsulting() {
   return (
-    <section id="consulting" className="section-padding bg-white">
+    <section
+      id="consulting"
+      className="py-20 md:py-32 bg-gradient-to-b from-[#F7F4F0] to-white overflow-hidden"
+    >
       <div className="container-width">
+        {/* Header */}
         <motion.div
-          className="mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <motion.p
-            variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-[0.3em] text-primary"
-          >
-            Beverage Consulting
-          </motion.p>
-          <motion.h2
-            variants={itemVariants}
-            className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
-          >
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            Beverage
+            <span className="block text-primary">Consulting</span>
+          </h2>
+          <p className="mt-3 text-xl md:text-2xl font-semibold text-accent">
             Independent Audits
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600"
-          >
-            BevCon delivers independent, structured audits for breweries and beverage plants worldwide. Our audits are fact-based, performance-driven, and focused on identifying improvement potential – not theoretical compliance.
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600"
-          >
-            We combine hands-on beverage engineering experience with operational and commercial understanding. Each audit delivers clear findings, quantified risks, and practical recommendations that enable management to prioritise investments, improve efficiency, and safeguard long-term asset value.
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600"
-          >
-            Audits can be performed as standalone assessments or combined into integrated programmes, depending on project phase, operational maturity, or strategic objectives.
-          </motion.p>
+          </p>
+          <p className="mt-4 text-lg text-slate-600 max-w-xl mx-auto">
+            Fact-based. Performance-driven. Actionable insights.
+          </p>
         </motion.div>
 
-        <motion.div
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-        >
-          {auditCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)]"
-            >
+        {/* Radial Layout */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Section Number - Background */}
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] md:text-[300px] font-bold text-slate-100 leading-none select-none pointer-events-none"
+          >
+            05
+          </motion.span>
+
+          {/* Central Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, type: "spring" }}
+            className="relative w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl z-10"
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+              alt="Quality inspection"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent" />
+          </motion.div>
+
+          {/* Connecting Lines - SVG */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+            viewBox="0 0 400 400"
+          >
+            {auditCategories.map((_, index) => {
+              const angle = (index * 60 - 90) * (Math.PI / 180);
+              const x2 = 200 + 140 * Math.cos(angle);
+              const y2 = 200 + 140 * Math.sin(angle);
+              return (
+                <motion.line
+                  key={index}
+                  x1="200"
+                  y1="200"
+                  x2={x2}
+                  y2={y2}
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  className="text-slate-200"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                />
+              );
+            })}
+          </svg>
+
+          {/* Audit Category Badges */}
+          {auditCategories.map((category, index) => {
+            const angle = (index * 60 - 90) * (Math.PI / 180);
+            const radius = 180; // Distance from center
+            const x = 50 + (radius / 200) * 50 * Math.cos(angle);
+            const y = 50 + (radius / 200) * 50 * Math.sin(angle);
+
+            return (
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
+                key={category.label}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10 mb-4"
+                transition={{
+                  duration: 0.4,
+                  delay: 0.5 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                whileHover={{ scale: 1.1 }}
+                className="absolute z-20"
+                style={{
+                  left: `${x}%`,
+                  top: `${y}%`,
+                  transform: "translate(-50%, -50%)",
+                }}
               >
-                <category.icon className="h-6 w-6 text-primary" />
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border border-slate-100">
+                    <category.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 whitespace-nowrap bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full">
+                    {category.label}
+                  </span>
+                </div>
               </motion.div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                {category.title}
-              </h3>
-              <ul className="space-y-2">
-                {category.audits.map((audit, auditIndex) => (
-                  <motion.li
-                    key={auditIndex}
-                    custom={auditIndex}
-                    variants={listItemVariants}
-                    className="flex items-start gap-2 text-sm text-slate-600"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>{audit}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
+            );
+          })}
 
+          {/* Spacer for radial layout height */}
+          <div className="h-[400px] md:h-[500px]" />
+        </div>
+
+        {/* Bottom CTA Card */}
         <motion.div
-          className="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={cardVariants}
-          whileHover={{ y: -3 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-8 max-w-2xl mx-auto"
         >
-          <div className="flex items-start gap-4">
-            <Search className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-            <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                Comprehensive Audit Coverage
-              </h3>
-              <p className="text-sm leading-relaxed text-slate-700">
-                Our audit portfolio covers every aspect of beverage plant operations, from process technology and packaging lines to utilities, maintenance, and commercial performance. Each audit is tailored to your specific needs and delivers actionable insights backed by industry benchmarks and engineering expertise.
-              </p>
-            </div>
+          <div className="bg-slate-900 rounded-3xl p-8 text-center">
+            <p className="text-white/70 text-sm uppercase tracking-wider mb-2">
+              Comprehensive Coverage
+            </p>
+            <p className="text-white text-xl font-semibold">
+              Every aspect of beverage plant operations
+            </p>
+            <p className="text-slate-400 mt-3 text-sm">
+              Standalone assessments or integrated programmes tailored to your needs
+            </p>
           </div>
         </motion.div>
       </div>

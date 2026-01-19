@@ -1,201 +1,157 @@
 "use client";
 
-import { TrendingUp, Wrench, BarChart3, CheckCircle2, Users } from "lucide-react";
-import { motion } from "framer-motion";
-
-const responsibilities = [
-  "Start-up and ramp-up support",
-  "Operational optimisation",
-  "Maintenance and asset performance support",
-  "Troubleshooting and root cause analysis",
-  "Performance benchmarking",
-  "Cost transparency and operational economics",
-  "Training and capability building",
-];
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Zap, TrendingDown, Gauge, Shield } from "lucide-react";
 
 const benefits = [
-  "Faster transition from commissioning to stable production",
-  "Improved reliability, efficiency, and product quality",
-  "Lower operating costs and reduced unplanned downtime",
-  "Stronger in-house capabilities and operational confidence",
+  {
+    icon: Zap,
+    title: "Faster Ramp-up",
+    description: "From commissioning to stable production",
+  },
+  {
+    icon: Gauge,
+    title: "Improved Reliability",
+    description: "Better efficiency and product quality",
+  },
+  {
+    icon: TrendingDown,
+    title: "Lower Costs",
+    description: "Reduced downtime and operating expenses",
+  },
+  {
+    icon: Shield,
+    title: "Stronger Capabilities",
+    description: "In-house operational confidence",
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.3,
-    },
-  }),
-};
-
 export default function BeverageConfidence() {
-  return (
-    <section id="confidence" className="section-padding bg-[#F7F4F0]">
-      <div className="container-width">
-        <motion.div
-          className="mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.p
-            variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-[0.3em] text-primary"
-          >
-            Beverage Confidence
-          </motion.p>
-          <motion.h2
-            variants={itemVariants}
-            className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
-          >
-            Technical and Commercial Operations Support
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600"
-          >
-            BevCon supports beverage producers after commissioning and throughout the operational lifecycle of their plants. We help owners and operators stabilise production, improve performance, and build sustainable internal capabilities — ensuring that engineered assets deliver their intended business value.
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600"
-          >
-            Unlike audit-based consulting, which focuses on assessment and recommendations at a point in time, Beverage Confidence is implementation-driven. We stay involved, work alongside operational teams, and support the transition from project mode to stable, efficient day-to-day operations.
-          </motion.p>
-        </motion.div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-        <div className="grid gap-8 lg:grid-cols-3">
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="confidence"
+      className="py-20 md:py-32 bg-white overflow-hidden"
+    >
+      <div className="container-width">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left - Image */}
           <motion.div
-            className="lg:col-span-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative"
           >
-            <div className="grid gap-6 sm:grid-cols-2">
-              {[
-                { icon: TrendingUp, title: "Start-up & Ramp-up", desc: "Production stabilisation, performance verification, bottleneck identification, and optimisation during early operation." },
-                { icon: BarChart3, title: "Operational Optimisation", desc: "Improvement of yields, line efficiency, throughput, energy and water consumption, and overall equipment effectiveness." },
-                { icon: Wrench, title: "Maintenance Support", desc: "Maintenance strategy optimisation, spare parts structures, reliability improvement, and maintenance KPIs." },
-                { icon: Users, title: "Capability Building", desc: "Technical training, operational coaching, and structured knowledge transfer to plant teams and management." },
-              ].map((card, i) => (
-                <motion.div
-                  key={i}
-                  variants={cardVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)]"
-                >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10 mb-4"
-                  >
-                    <card.icon className="h-6 w-6 text-primary" />
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-slate-600">
-                    {card.desc}
-                  </p>
-                </motion.div>
-              ))}
+            {/* Section Number */}
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="absolute -top-8 -left-4 text-[120px] lg:text-[160px] font-bold text-slate-100 leading-none select-none z-0"
+            >
+              04
+            </motion.span>
+
+            {/* Main Image */}
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl z-10">
+              <motion.div className="absolute inset-0" style={{ y: imageY }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+                  alt="Modern bottling production line"
+                  fill
+                  className="object-cover scale-110"
+                />
+              </motion.div>
+
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+
+              {/* Floating stat */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-5"
+              >
+                <p className="text-sm font-medium text-slate-700">Implementation-driven support</p>
+                <p className="text-2xl font-bold text-slate-900 mt-1">From Commissioning to Peak Performance</p>
+              </motion.div>
             </div>
           </motion.div>
 
-          <motion.div
-            className="space-y-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
-          >
+          {/* Right - Content */}
+          <div>
+            {/* Header */}
             <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -3 }}
-              className="rounded-2xl border border-slate-200 bg-white p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Typical BevCon Responsibilities
-              </h3>
-              <ul className="space-y-3">
-                {responsibilities.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    custom={index}
-                    variants={listItemVariants}
-                    className="flex items-start gap-2 text-sm text-slate-600"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                Beverage
+                <span className="block text-primary">Confidence</span>
+              </h2>
+              <p className="mt-3 text-xl md:text-2xl font-semibold text-accent">
+                Operations Support
+              </p>
+              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+                Helping producers stabilise production and build sustainable capabilities.
+              </p>
             </motion.div>
 
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -3 }}
-              className="rounded-2xl border border-primary/30 bg-primary/5 p-6"
-            >
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                What This Means for Beverage Projects
-              </h3>
-              <ul className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <motion.li
-                    key={index}
-                    custom={index}
-                    variants={listItemVariants}
-                    className="flex items-start gap-2 text-sm text-slate-700"
-                  >
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{benefit}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </motion.div>
+            {/* Stacked Benefit Cards */}
+            <div className="mt-10 space-y-4">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={benefit.title}
+                  initial={{ opacity: 0, x: 30, rotateX: -10 }}
+                  whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.2 + index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileHover={{
+                    x: 10,
+                    boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)",
+                    transition: { duration: 0.2 }
+                  }}
+                  className="flex items-center gap-5 p-5 rounded-2xl bg-gradient-to-r from-slate-50 to-white border border-slate-100 shadow-sm cursor-default"
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="w-7 h-7 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-sm text-slate-500 mt-0.5">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

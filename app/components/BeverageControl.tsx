@@ -1,201 +1,181 @@
 "use client";
 
-import { BarChart3, DollarSign, TrendingDown, CheckCircle2, Database } from "lucide-react";
 import { motion } from "framer-motion";
+import { BarChart3, DollarSign, TrendingUp } from "lucide-react";
 
-const responsibilities = [
-  "Operational KPI definition and tracking",
-  "Cost structure and OPEX transparency",
-  "Performance and loss analysis",
-  "Reporting systems and management dashboards",
-  "Decision-support and scenario analysis",
-  "Integration with digital tools",
+const kpiCards = [
+  { icon: BarChart3, label: "KPI Tracking", value: "Real-time" },
+  { icon: DollarSign, label: "Cost Transparency", value: "By area & driver" },
+  { icon: TrendingUp, label: "Performance Analysis", value: "Data-driven" },
 ];
-
-const benefits = [
-  "Clear visibility of operational and financial performance",
-  "Targeted OPEX optimisation based on facts, not assumptions",
-  "Better prioritisation of improvement measures and investments",
-  "Stronger management control over complex beverage operations",
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.3,
-    },
-  }),
-};
 
 export default function BeverageControl() {
   return (
-    <section id="control" className="section-padding bg-[#F7F4F0]">
+    <section id="control" className="py-20 md:py-32 bg-[#F7F4F0] overflow-hidden">
       <div className="container-width">
-        <motion.div
-          className="mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.p
-            variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-[0.3em] text-primary"
-          >
-            Beverage Control
-          </motion.p>
-          <motion.h2
-            variants={itemVariants}
-            className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
-          >
-            Controlling, Reporting, OPEX Optimization
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600"
-          >
-            BevCon brings transparency and structure to beverage operations by linking technical performance with financial outcomes. Beverage Control is not classic accounting or generic controlling — it is operations-driven decision support tailored specifically to beverage plants.
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600"
-          >
-            We help owners and management teams understand where value is created, where it is lost, and which levers truly matter. By combining engineering data, operational KPIs, and cost structures, BevCon enables informed decisions that improve performance, reduce waste, and sustainably optimise operating costs.
-          </motion.p>
-        </motion.div>
-
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left - Dashboard Mockup */}
           <motion.div
-            className="lg:col-span-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="order-2 lg:order-1"
           >
-            <div className="grid gap-6 sm:grid-cols-2">
-              {[
-                { icon: BarChart3, title: "KPI Definition & Tracking", desc: "Development of meaningful KPIs across process, packaging, utilities, maintenance, quality, and energy — focused on operational relevance, not reporting volume." },
-                { icon: DollarSign, title: "OPEX Transparency", desc: "Breakdown of operating costs by area, asset group, and cost driver, enabling targeted optimisation instead of blanket cost cutting." },
-                { icon: TrendingDown, title: "Performance & Loss Analysis", desc: "Identification of efficiency losses, downtime drivers, yield losses, energy and water inefficiencies, and their financial impact." },
-                { icon: Database, title: "Digital Integration", desc: "Alignment with digital solutions such as maintenance systems, laboratory data, and business intelligence platforms to ensure consistent and reliable data flows." },
-              ].map((card, i) => (
-                <motion.div
-                  key={i}
-                  variants={cardVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)]"
-                >
+            {/* Dashboard Container */}
+            <div className="relative bg-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
+              {/* Section Number */}
+              <span className="absolute top-4 right-4 text-[60px] font-bold text-white/5 leading-none select-none">
+                06
+              </span>
+
+              {/* Dashboard Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <span className="text-xs text-slate-500 font-mono">bevcon-control.app</span>
+              </div>
+
+              {/* Metric Row */}
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                {[
+                  { label: "OEE", value: "87.4%", trend: "+2.1%" },
+                  { label: "OPEX/hl", value: "€4.23", trend: "-0.8%" },
+                  { label: "Yield", value: "98.2%", trend: "+0.4%" },
+                ].map((metric, i) => (
                   <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
+                    key={metric.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10 mb-4"
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    className="bg-slate-800/50 rounded-xl p-4"
                   >
-                    <card.icon className="h-6 w-6 text-primary" />
+                    <p className="text-xs text-slate-400">{metric.label}</p>
+                    <p className="text-2xl font-bold text-white mt-1">{metric.value}</p>
+                    <p className="text-xs text-green-400 mt-1">{metric.trend}</p>
                   </motion.div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-slate-600">
-                    {card.desc}
-                  </p>
-                </motion.div>
-              ))}
+                ))}
+              </div>
+
+              {/* Animated Bar Chart */}
+              <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
+                <p className="text-xs text-slate-400 mb-4">Cost Breakdown by Area</p>
+                <div className="space-y-3">
+                  {[
+                    { label: "Process", width: 85, color: "bg-accent" },
+                    { label: "Packaging", width: 72, color: "bg-blue-400" },
+                    { label: "Utilities", width: 58, color: "bg-purple-400" },
+                    { label: "Maintenance", width: 45, color: "bg-green-400" },
+                  ].map((bar, i) => (
+                    <div key={bar.label} className="flex items-center gap-3">
+                      <span className="text-xs text-slate-400 w-20">{bar.label}</span>
+                      <div className="flex-1 h-6 bg-slate-700/50 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${bar.width}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.5 + i * 0.15 }}
+                          className={`h-full ${bar.color} rounded-full`}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Line Chart Placeholder */}
+              <div className="bg-slate-800/50 rounded-xl p-4">
+                <p className="text-xs text-slate-400 mb-3">Performance Trend</p>
+                <svg className="w-full h-16" viewBox="0 0 300 60">
+                  <motion.path
+                    d="M0,45 Q30,40 60,35 T120,30 T180,25 T240,28 T300,20"
+                    fill="none"
+                    stroke="#ffbb3a"
+                    strokeWidth="2"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.8 }}
+                  />
+                  <motion.path
+                    d="M0,50 Q30,48 60,45 T120,42 T180,40 T240,38 T300,35"
+                    fill="none"
+                    stroke="#60a5fa"
+                    strokeWidth="2"
+                    strokeOpacity="0.5"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 1 }}
+                  />
+                </svg>
+              </div>
             </div>
           </motion.div>
 
-          <motion.div
-            className="space-y-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
-          >
+          {/* Right - Content */}
+          <div className="order-1 lg:order-2">
             <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -3 }}
-              className="rounded-2xl border border-slate-200 bg-white p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Typical BevCon Responsibilities
-              </h3>
-              <ul className="space-y-3">
-                {responsibilities.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    custom={index}
-                    variants={listItemVariants}
-                    className="flex items-start gap-2 text-sm text-slate-600"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                Beverage
+                <span className="block text-primary">Control</span>
+              </h2>
+              <p className="mt-3 text-xl md:text-2xl font-semibold text-accent">
+                Operational Intelligence
+              </p>
+              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+                See where value is created and lost. Make data-driven decisions.
+              </p>
             </motion.div>
 
+            {/* KPI Cards */}
+            <div className="mt-10 space-y-4">
+              {kpiCards.map((card, index) => (
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                  className="flex items-center gap-5 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center flex-shrink-0">
+                    <card.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-slate-900">
+                      {card.label}
+                    </h3>
+                    <p className="text-sm text-slate-500">
+                      {card.value}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA */}
             <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -3 }}
-              className="rounded-2xl border border-primary/30 bg-primary/5 p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20"
             >
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                What This Means for Beverage Projects
-              </h3>
-              <ul className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <motion.li
-                    key={index}
-                    custom={index}
-                    variants={listItemVariants}
-                    className="flex items-start gap-2 text-sm text-slate-700"
-                  >
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{benefit}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              <p className="text-sm font-medium text-slate-700">
+                Transform technical performance into financial outcomes
+              </p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

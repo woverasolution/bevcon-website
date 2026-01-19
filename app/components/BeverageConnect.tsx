@@ -1,189 +1,161 @@
 "use client";
 
-import { Users, Briefcase, Wrench, TrendingUp, CheckCircle2, Clock } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { Briefcase, Wrench, TrendingUp } from "lucide-react";
 
 const assignmentTypes = [
-  {
-    title: "Interim Project & Technical Management",
-    description: "Interim project managers, technical managers, and owner's engineers during critical project phases.",
-    icon: Briefcase,
-  },
-  {
-    title: "Commissioning & Start-up Support",
-    description: "Commissioning engineers, ramp-up support, and performance stabilisation specialists.",
-    icon: Wrench,
-  },
-  {
-    title: "Operations & Maintenance Expertise",
-    description: "Temporary deployment of operations, maintenance, and reliability experts to stabilise performance and reduce downtime.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Transformation & Restructuring Support",
-    description: "Expert support during organisational changes, plant expansions, and operational restructurings.",
-    icon: Clock,
-  },
-  {
-    title: "Peak Production & Capacity Support",
-    description: "Short-term reinforcement during high-demand periods, product launches, or capacity constraints.",
-    icon: Users,
-  },
+  { icon: Briefcase, label: "Project Management" },
+  { icon: Wrench, label: "Commissioning Support" },
+  { icon: TrendingUp, label: "Operations Expertise" },
 ];
-
-const benefits = [
-  "Immediate access to trusted, senior expertise",
-  "Rapid integration without lengthy onboarding",
-  "Continuity during critical phases or personnel gaps",
-  "Reduced operational and project risk",
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      
-    },
-  },
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.3,
-    },
-  }),
-};
 
 export default function BeverageConnect() {
   return (
-    <section id="connect" className="section-padding bg-white">
+    <section id="connect" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="container-width">
-        <motion.div
-          className="mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.p
-            variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-[0.3em] text-primary"
+        {/* Asymmetric Image Gallery Grid */}
+        <div className="grid grid-cols-12 gap-4 auto-rows-[120px] md:auto-rows-[150px]">
+          {/* Large Image - Left */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="col-span-12 md:col-span-5 row-span-3 relative rounded-3xl overflow-hidden"
           >
-            Beverage Connect
-          </motion.p>
-          <motion.h2
-            variants={itemVariants}
-            className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
-          >
-            Expert Assignments for Short and Long-term Durations
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600"
-          >
-            BevCon provides experienced beverage professionals for targeted, short- and long-term expert assignments. Beverage Connect is not recruitment or staffing — it is the structured deployment of senior expertise to stabilise operations, bridge capability gaps, and support critical phases in beverage projects and operations.
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600"
-          >
-            We support clients during peak workloads, complex project phases, restructurings, start-ups, and temporary personnel gaps caused by leave, illness, or organisational change. BevCon experts integrate quickly into existing teams and deliver immediate value without long onboarding periods.
-          </motion.p>
-        </motion.div>
+            <Image
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              alt="Professional team collaboration"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
 
-        <motion.div
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-        >
-          {assignmentTypes.map((assignment, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)]"
+            {/* Section Number */}
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="absolute top-4 left-4 text-[80px] font-bold text-white/20 leading-none select-none"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10 mb-4"
-              >
-                <assignment.icon className="h-6 w-6 text-primary" />
-              </motion.div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                {assignment.title}
-              </h3>
-              <p className="text-sm text-slate-600">
-                {assignment.description}
+              07
+            </motion.span>
+          </motion.div>
+
+          {/* Top Right Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="col-span-6 md:col-span-4 row-span-2 relative rounded-3xl overflow-hidden"
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80"
+              alt="Engineer inspection"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+          </motion.div>
+
+          {/* Small Right Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="col-span-6 md:col-span-3 row-span-2 relative rounded-3xl overflow-hidden"
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&q=80"
+              alt="Professional at work"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
+          </motion.div>
+
+          {/* Content Card - Overlapping */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="col-span-12 md:col-span-7 row-span-2 glass-subtle rounded-3xl p-8 md:p-10 shadow-xl border border-white/50"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
+              Beverage
+              <span className="block text-primary">Connect</span>
+            </h2>
+            <p className="mt-3 text-xl font-semibold text-accent">
+              Expert Assignments
+            </p>
+            <p className="mt-4 text-slate-600">
+              Senior expertise. Rapid integration. Immediate value.
+            </p>
+
+            {/* Assignment Types */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {assignmentTypes.map((type, index) => (
+                <motion.div
+                  key={type.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-3 bg-white rounded-full px-5 py-3 shadow-sm border border-slate-100"
+                >
+                  <type.icon className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-medium text-slate-700">{type.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bottom Accent Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="hidden md:block col-span-5 row-span-1 relative rounded-3xl overflow-hidden bg-slate-900"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-white/80 text-sm font-medium">
+                Trusted professionals for critical phases
               </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Benefits Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {[
+            "Immediate access",
+            "Rapid integration",
+            "Continuity assured",
+            "Reduced risk",
+          ].map((benefit, index) => (
+            <motion.div
+              key={benefit}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+              className="text-center py-4 px-2 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-100"
+            >
+              <p className="text-sm font-medium text-slate-700">{benefit}</p>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="rounded-2xl border border-primary/30 bg-primary/5 p-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={cardVariants}
-          whileHover={{ y: -3 }}
-        >
-          <h3 className="text-xl font-semibold text-slate-900 mb-6">
-            What This Means for Beverage Projects
-          </h3>
-          <motion.div
-            className="grid gap-4 sm:grid-cols-2"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={listItemVariants}
-                className="flex items-start gap-3"
-              >
-                <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-slate-700">{benefit}</span>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
     </section>
