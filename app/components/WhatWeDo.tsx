@@ -12,49 +12,57 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { cn } from "../lib/utils";
 
 const services = [
   {
     title: "Concept",
-    description: "Market strategy, technical concepts, and feasibility studies.",
+    description: "Market strategy, technical concepts, and feasibility studies to launch your vision.",
     icon: Lightbulb,
     id: "concept",
+    className: "md:col-span-2 md:row-span-1",
   },
   {
     title: "Construction",
     description: "Project execution, engineering oversight, and delivery.",
     icon: HardHat,
     id: "construction",
+    className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Contracts",
     description: "FIDIC administration, claims management, and dispute resolution.",
     icon: FileText,
     id: "contracts",
+    className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Confidence",
     description: "Bankability, risk reduction, and investor readiness.",
     icon: ShieldCheck,
     id: "confidence",
+    className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Consulting",
     description: "Independent expertise, strategic governance, and auditing.",
     icon: Briefcase,
     id: "consulting",
+    className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Control",
     description: "Financial governance, cost control, and performance assurance.",
     icon: Settings,
     id: "control",
+    className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Connect",
     description: "Stakeholder alignment, networking, and partnership building.",
     icon: Users,
     id: "connect",
+    className: "md:col-span-2 md:row-span-1",
   },
 ];
 
@@ -74,25 +82,25 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#0B1120]">
+    <section className="section-padding relative overflow-hidden bg-[#0B1120] py-24">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-image-2.png" 
           alt="Industrial Background"
           fill
-          className="object-cover opacity-30 grayscale mix-blend-overlay"
+          className="object-cover opacity-20 grayscale mix-blend-overlay"
           priority={false}
         />
         {/* Gradient Overlay for Fade Effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/95 to-[#0B1120]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/90 to-[#0B1120]" />
         
         {/* Subtle animated grain/noise */}
          <div className="absolute inset-0 opacity-[0.2] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
 
       <div className="container-width relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +119,7 @@ export default function WhatWeDo() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[minmax(240px,auto)]">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -120,37 +128,41 @@ export default function WhatWeDo() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => scrollToSection(service.id)}
-              className={`
-                group cursor-pointer relative 
-                bg-slate-800/20 backdrop-blur-sm 
-                rounded-2xl p-8 
-                border border-white/5
-                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.3)]
-                hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]
-                hover:-translate-y-2 hover:bg-slate-800/60 hover:border-[#ffbb3a]/40
-                transition-all duration-300 ease-out
-                flex flex-col
-                ${index >= 4 ? 'lg:col-span-1' : ''}
-              `}
+              className={cn(
+                "group cursor-pointer relative overflow-hidden",
+                "bg-slate-900/40 backdrop-blur-md",
+                "rounded-3xl p-8",
+                "border border-white/5 hover:border-white/20",
+                "transition-all duration-500 ease-out",
+                "hover:shadow-[0_0_40px_-10px_rgba(255,187,58,0.1)]",
+                "hover:bg-slate-800/50",
+                "flex flex-col justify-between",
+                service.className
+              )}
             >
-              <div className="flex justify-between items-start mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-slate-700/30 border border-white/5 flex items-center justify-center group-hover:bg-[#ffbb3a] group-hover:border-[#ffbb3a] transition-all duration-300 shadow-sm">
-                  <service.icon className="w-7 h-7 text-slate-300 group-hover:text-white transition-colors duration-300" />
+              {/* Content Container */}
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-slate-800/50 border border-white/5 flex items-center justify-center group-hover:bg-[#ffbb3a] group-hover:text-slate-900 transition-all duration-300 shadow-sm">
+                    <service.icon className="w-6 h-6 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
+                  </div>
+                  <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                    <ArrowRight className="w-5 h-5 text-[#ffbb3a]" />
+                  </div>
                 </div>
-                <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                  <ArrowRight className="w-5 h-5 text-[#ffbb3a]" />
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#ffbb3a] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-200 transition-colors font-light">
+                    {service.description}
+                  </p>
                 </div>
               </div>
-              
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#ffbb3a] transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-slate-300 text-sm leading-relaxed flex-grow group-hover:text-white transition-colors font-light">
-                {service.description}
-              </p>
-              
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-[#ffbb3a]/0 group-hover:bg-[#ffbb3a] transition-all duration-500 scale-x-0 group-hover:scale-x-100 origin-left" />
+
+              {/* Decorative corner glow - Simplified to single accent color */}
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#ffbb3a]/5 blur-[60px] rounded-full group-hover:bg-[#ffbb3a]/10 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
