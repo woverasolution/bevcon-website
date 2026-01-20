@@ -69,26 +69,13 @@ export default function BeverageConcept() {
         </motion.div>
       </div>
 
-      {/* Section Number */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-10"
-      >
-        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
-          01
-        </span>
-      </motion.div>
-
       <div className="container-width w-full relative z-10">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-24 items-center">
           
           {/* Left Column: Main Content */}
           <motion.div 
             style={{ y: contentY, opacity }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-8 lg:pr-12"
           >
             <div className="space-y-4">
               <motion.h2
@@ -114,7 +101,7 @@ export default function BeverageConcept() {
             </div>
 
             {/* Strategic Pillars Grid */}
-            <div className="grid sm:grid-cols-3 gap-4 mt-4">
+            <div className="grid sm:grid-cols-3 gap-8 mt-8">
               {conceptPillars.map((pillar, index) => (
                 <motion.div
                   key={pillar.title}
@@ -122,13 +109,13 @@ export default function BeverageConcept() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[#ffbb3a]/30 transition-all group"
+                  className="group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#ffbb3a]/10 flex items-center justify-center mb-4 group-hover:bg-[#ffbb3a] transition-colors">
-                    <pillar.icon className="w-5 h-5 text-[#ffbb3a] group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 flex items-center justify-center mb-4 border-l-2 border-[#ffbb3a] pl-4">
+                    <pillar.icon className="w-6 h-6 text-[#ffbb3a]" />
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">{pillar.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{pillar.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{pillar.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{pillar.description}</p>
                 </motion.div>
               ))}
             </div>

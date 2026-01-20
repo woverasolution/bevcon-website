@@ -13,19 +13,6 @@ const assignmentTypes = [
 export default function BeverageConnect() {
   return (
     <section id="connect" className="py-20 md:py-32 bg-white relative overflow-hidden">
-      {/* Section Number */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="absolute top-8 right-8 lg:top-16 lg:right-16 z-0"
-      >
-        <span className="text-[100px] lg:text-[150px] font-bold text-slate-900/5 leading-none select-none">
-          07
-        </span>
-      </motion.div>
-
       <div className="container-width relative z-10">
         {/* Asymmetric Image Gallery Grid */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[120px] md:auto-rows-[150px]">

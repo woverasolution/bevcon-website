@@ -84,19 +84,6 @@ export default function BeverageConstruction() {
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
 
-      {/* Section Number */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="absolute top-8 right-8 lg:top-16 lg:right-16"
-      >
-        <span className="text-[100px] lg:text-[150px] font-bold text-white/5 leading-none select-none">
-          02
-        </span>
-      </motion.div>
-
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-end">
         <div className="container-width w-full pb-16 lg:pb-24">
