@@ -151,20 +151,18 @@ export default function HeroLightAnimated() {
 
       {/* 2. Parallax Image Layer (Right Side / Background) */}
       <motion.div 
-        style={{ y: yBg, filter: blurBg }}
+        style={{ y: yBg }}
         className="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] z-0 overflow-hidden hidden lg:block"
       >
-         {/* Mask Image with Gradient to fade into texture */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#F7F4F0] via-[#F7F4F0]/60 to-transparent" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#F7F4F0] via-transparent to-[#F7F4F0]" />
-        
         <Image
-          src="/images/hero-image-1.png"
+          src="/images/beverage-visual-01.png"
           alt="Industrial Beverage Plant"
           fill
-          className="object-cover object-left opacity-80"
+          className="object-cover object-left"
           priority
+          quality={100}
         />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#F7F4F0]/95 to-transparent pointer-events-none" />
       </motion.div>
 
       {/* 3. Main Content Content */}
@@ -228,33 +226,6 @@ export default function HeroLightAnimated() {
             </StaticButton>
           </motion.div>
 
-           {/* Trusted By (Mini) */}
-           <motion.div 
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ delay: 1.4 }}
-             className="pt-6 lg:pt-8 border-t border-[#9a9a9a]/30 flex flex-col sm:flex-row gap-5 sm:items-center"
-           >
-              <span className="text-[10px] lg:text-xs uppercase tracking-widest text-[#9a9a9a] font-medium">Trusted by Industry Leaders</span>
-             <div className="flex gap-6 items-center opacity-50 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100">
-                <div className="relative h-5 w-20 lg:h-7 lg:w-24">
-                  <Image 
-                    src="/logos/coca-cola-2021.svg" 
-                    alt="Coca-Cola" 
-                    fill 
-                    className="object-contain" 
-                  />
-                </div>
-                <div className="relative h-5 w-20 lg:h-7 lg:w-24">
-                  <Image 
-                    src="/logos/heineken.svg" 
-                    alt="Heineken" 
-                    fill 
-                    className="object-contain" 
-                  />
-                </div>
-             </div>
-           </motion.div>
 
         </motion.div>
 

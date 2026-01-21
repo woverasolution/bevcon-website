@@ -82,7 +82,7 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#0B1120] py-24">
+    <section id="services" className="section-padding relative overflow-hidden bg-[#0B1120] py-24">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image
