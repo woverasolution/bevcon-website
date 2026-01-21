@@ -113,7 +113,9 @@ Key responsive patterns used throughout the codebase:
 npm run dev    # Start development server
 npm run build  # Production build
 npm run start  # Start production server
-npm run lint   # Run ESLint
+npm run lint            # Run ESLint
+npm run optimize-images # Optimize images in public/images and public/portraits
+npm run optimize-videos # Optimize videos in public/videos (requires ffmpeg)
 ```
 
 ## Key Conventions
