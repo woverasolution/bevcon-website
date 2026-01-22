@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { allProfiles } from './lib/network-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bevcon.com';
+  const baseUrl = 'https://www.bevcon.net';
 
   // Static pages
   const staticPages = [

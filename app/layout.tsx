@@ -21,7 +21,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bevcon.com'),
+  metadataBase: new URL('https://www.bevcon.net'),
   title: {
     default: "BevCon – Built for Reality",
     template: "%s | BevCon"
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bevcon.com',
+    url: 'https://www.bevcon.net',
     siteName: 'BevCon',
     title: 'BevCon – Built for Reality',
     description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide. Comprehensive consulting, construction, and confidence services for breweries and beverage facilities.',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://bevcon.com',
+    canonical: 'https://www.bevcon.net',
   },
   verification: {
     google: 'DlzYHzQj9hYnHkjriGyW7ye8LQ2Yfe4L8y48TKZ-pUU',
@@ -96,8 +96,8 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'BevCon',
-    url: 'https://bevcon.com',
-    logo: 'https://bevcon.com/logos/DARK%20BG%20LOGO.svg',
+    url: 'https://www.bevcon.net',
+    logo: 'https://www.bevcon.net/logos/DARK%20BG%20LOGO.svg',
     description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide.',
     sameAs: [
       // Add social media URLs here when available
