@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ArrowRight, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 
@@ -14,7 +14,7 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const isHome = pathname === "/";
-  
+
   // Derived state: Navbar is "scrolled" (solid) if not on home page OR if user scrolled down
   const scrolled = !isHome || hasScrolled;
 
@@ -22,12 +22,6 @@ export default function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     setHasScrolled(latest > 50);
   });
-
-  // Check initial scroll position
-  useEffect(() => {
-    setHasScrolled(window.scrollY > 50);
-    setMobileMenuOpen(false);
-  }, [pathname]); // Reset menu on route change
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (isHome && href.startsWith("/#")) {
@@ -48,6 +42,7 @@ export default function Navbar() {
   };
 
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "Services", href: "/#services" },
     { name: "Our Network", href: "/network" },
     { name: "Contact", href: "/#contact" },
@@ -56,21 +51,23 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
+        initial={isHome ? { y: -100 } : false}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled 
-            ? "bg-white/95 backdrop-blur-md py-3 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] border-b border-slate-200/50" 
+          scrolled
+            ? "bg-white py-3 border-b border-slate-200/50"
             : "bg-transparent py-6"
         )}
       >
-        {/* Top Accent Line */}
-        <div className={cn(
-          "absolute top-0 left-0 right-0 h-[3px] bg-accent transition-transform duration-500 origin-left",
-          scrolled ? "scale-x-100" : "scale-x-0"
-        )} />
+        {/* Top Accent Line - only show on home page when scrolled */}
+        {isHome && (
+          <div className={cn(
+            "absolute top-0 left-0 right-0 h-[3px] bg-accent transition-transform duration-500 origin-left",
+            scrolled ? "scale-x-100" : "scale-x-0"
+          )} />
+        )}
 
         <div className="max-w-[95%] xl:max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
@@ -132,23 +129,6 @@ export default function Navbar() {
                   </div>
                 ))}
               </nav>
-              
-              <Link
-                href="/#contact"
-                onClick={(e) => handleLinkClick(e, "/#contact")}
-                className={cn(
-                  "group relative flex items-center gap-2 overflow-hidden px-6 py-2.5 rounded-sm font-bold text-[11px] uppercase tracking-widest transition-all duration-300",
-                  scrolled 
-                    ? "bg-primary text-white hover:bg-primary-hover shadow-md" 
-                    : "bg-white text-primary border border-slate-200 hover:border-primary shadow-sm"
-                )}
-              >
-                <span className="relative z-10">Discuss Your Project</span>
-                <ArrowRight className="relative z-10 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                {!scrolled && (
-                  <div className="absolute inset-0 z-0 translate-y-full bg-primary transition-transform duration-300 group-hover:translate-y-0" />
-                )}
-              </Link>
             </motion.div>
 
             <motion.button 
@@ -212,22 +192,6 @@ export default function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
-                  
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-8"
-                  >
-                    <Link
-                      href="/#contact"
-                      onClick={(e) => handleLinkClick(e, "/#contact")}
-                      className="btn-primary w-full flex items-center justify-center gap-2"
-                    >
-                      Discuss Your Project
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </motion.div>
                 </nav>
                 
                 {/* Footer / Contact Info in Drawer */}

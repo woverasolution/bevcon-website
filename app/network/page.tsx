@@ -25,7 +25,7 @@ function getProfileImage(id: string) {
 }
 
 function NetworkProfileCard({ profile }: { profile: NetworkProfile }) {
-  const imageSrc = getProfileImage(profile.id);
+  const imageSrc = profile.image || getProfileImage(profile.id);
 
   return (
     <FlippingCard
@@ -37,7 +37,7 @@ function NetworkProfileCard({ profile }: { profile: NetworkProfile }) {
             <img 
               src={imageSrc} 
               alt={profile.name} 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover object-top" 
             />
           </div>
           <div className="p-4 flex flex-col justify-center flex-grow bg-slate-50 rounded-b-lg">

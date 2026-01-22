@@ -8,6 +8,7 @@ export interface NetworkProfile {
   teaserServices: string;
   fullProfile?: string;
   services: string[];
+  image?: string;
 }
 
 // Helper function to create slug from name
@@ -25,6 +26,7 @@ const aLevelProfiles: NetworkProfile[] = [
     name: 'Johannes Bier',
     role: 'Managing Director',
     level: 'A',
+    image: '/portraits/BierJohannes_light.png',
     teaserServices: 'Strategy · Project Development · Finance · Contracts',
     services: ['Beverage Concept', 'Beverage Construction', 'Beverage Contracts', 'Beverage Control', 'Beverage Confidence', 'Beverage Connect'],
     fullProfile: `Johannes Bier is the Managing Director of BevCon and an experienced international project developer, strategy consultant, and FIDIC contract expert with a strong track record in large-scale beverage and industrial investments worldwide. He holds a degree in Economics from Humboldt University Berlin and completed advanced executive studies at HEC Lausanne.
@@ -44,6 +46,7 @@ Johannes is a recognised FIDIC contract specialist with extensive experience in 
     name: 'Piet Sierens',
     role: 'Technical Director',
     level: 'A',
+    image: '/portraits/PietSierens_light.png',
     teaserServices: 'Engineering · Operations · Project Execution',
     services: ['Beverage Concept', 'Beverage Construction', 'Beverage Confidence', 'Beverage Control', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Piet Sierens is the Technical Director of BevCon and a senior industrial engineer with extensive international experience in engineering, procurement, operations, and large-scale beverage project execution. He holds a degree in Industrial Engineering in Biochemistry (with distinction) and an MBA (USA). Together with the Managing Director, Piet co-leads BevCon's technical and operational activities, acting as technical authority and Employer's Representative on complex investments.
@@ -63,6 +66,8 @@ const bLevelProfiles: NetworkProfile[] = [
     name: 'Hardeep Singh Bajwa',
     role: 'Brewmaster & Plant Manager',
     level: 'B',
+    // No light image available, reverting to industrial as preferred alternative
+    image: '/portraits/SingHardeep_industrial.png',
     teaserServices: 'Industrial brewery leadership',
     services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Hardeep Singh Bajwa is a senior brewmaster and plant leader with more than 25 years of international experience in industrial brewery operations across Africa and Asia. He has held senior roles including Plant Head, Brewery Manager / Site Director, Site Technical Manager, and senior brewing leadership positions within global and regional brewing groups. Across these assignments, he has combined strong operational discipline with people leadership, delivering stable performance in complex, high-volume environments.
@@ -106,23 +111,6 @@ A key strength is his sensory and microbiological focus: structured sensory eval
 Within BevCon, Stefan contributes to Beverage Construction and Beverage Confidence assignments, particularly where quality stability, sensory capability, commissioning support, and data-driven operational optimisation are critical.`,
   },
   {
-    id: 'krzysztof-kapek',
-    name: 'Krzysztof Kapek',
-    role: 'Automation & Robotics Engineer',
-    level: 'B',
-    teaserServices: 'Maintenance · Automation · Performance',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Control', 'Beverage Connect'],
-    fullProfile: `Krzysztof Kapek is a senior automation and robotics engineer with over 25 years of experience in industrial production environments, specialising in automation systems, maintenance management, and performance optimisation of complex production lines. He holds a Master's degree in Automation and Robotics from Cracow University of Technology and combines strong technical depth with proven leadership and project execution capability.
-
-Krzysztof has significant experience as both Head of Maintenance and owner of his own engineering company (ErgoTech). In this capacity, he has led multi-person teams as a project manager on the contractor side, performing hands-on tasks with technicians while ensuring schedule adherence, quality, and safety. His work includes production line start-ups, performance testing, periodic maintenance and repairs, specialised machine equipment fabrication, and commissioning of technological installations. He also prepares technical documentation and supports clients with practical solutions that improve reliability and throughput.
-
-Earlier, Krzysztof worked at Brewery Kielce (Kompania Piwowarska / SABMiller) as Maintenance Engineer, managing a team of more than 20 employees covering maintenance and utilities/media delivery. He planned inspections, managed spare parts and inventories, led tendering for service works, coordinated subcontractors, and used MP2 and later SAP PM for work-order preparation and maintenance planning. He has experience building budgets, controlling expenditure, and delivering internal training programs aligned with TPM and World Class Manufacturing approaches.
-
-Technically, Krzysztof brings broad industrial competence: electrical systems, pneumatics, hydraulics, steam, ammonia and CO₂ utilities, wastewater and water treatment, and Siemens S5/S7 PLC controllers with basic programming and industrial communication.
-
-Within BevCon, he strengthens automation, maintenance excellence, and operational reliability across construction, commissioning, and performance improvement assignments.`,
-  },
-  {
     id: 'hubert-de-halleux',
     name: 'Hubert de Halleux',
     role: 'Brewing & Process Engineer',
@@ -142,6 +130,7 @@ Within BevCon, Hubert contributes to Beverage Concept and Beverage Construction 
     name: 'Wolfgang Haeslich',
     role: 'Beverage Technologist',
     level: 'B',
+    image: '/portraits/HaeslichWolfgang_light.png',
     teaserServices: 'Juice · Dairy · Soft drinks',
     services: ['Beverage Concept', 'Beverage Construction', 'Beverage Confidence', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Wolfgang Haeslich is a senior beverage technologist with more than 30 years of international experience in fruit processing, juice, dairy-based beverages, and soft drinks. His background combines engineering understanding with deep beverage-technology practice, spanning product development, industrial implementation, and global customer support across Europe, Africa, the Middle East, Latin America, and Asia.
@@ -172,6 +161,7 @@ Within BevCon, Peter supports Beverage Construction and Beverage Confidence assi
     name: 'Christian Mueller',
     role: 'Senior Brewmaster',
     level: 'B',
+    image: '/portraits/MuellerChristian_industrial.png',
     teaserServices: 'Operational optimisation · Training',
     services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Christian Mueller brings more than 25 years of international brewing experience across small breweries, mid-sized operations, and large industrial groups. He supports brewery management teams and shop-floor brewers in improving operational performance, reducing losses, and reaching KPI-driven targets—especially when plants need practical coaching and a fresh external view.
@@ -204,6 +194,7 @@ Within BevCon, Sanjay supports Beverage Construction, Beverage Confidence, and B
     name: 'Patrick Laval',
     role: 'Utility Expert',
     level: 'B',
+    image: '/portraits/LavalPatrick_industrial.png',
     teaserServices: 'CO₂ recovery · Cooling · Energy',
     services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Consulting', 'Beverage Control', 'Beverage Connect'],
     fullProfile: `Patrick Laval is a senior utilities specialist with more than 30 years of international experience in the design, audit, installation follow-up, and optimisation of CO₂ recovery and CO₂ production plants, as well as industrial cooling and refrigeration systems for beverage and agro-food operations.
@@ -215,25 +206,11 @@ Patrick supports projects from early concept design through commissioning and st
 Within BevCon, Patrick strengthens Beverage Construction and Beverage Confidence assignments, particularly for utilities concept design, commissioning support, and performance improvement programs. He provides a clear, practical utility perspective that helps investors and operators protect production continuity and reduce operating cost volatility.`,
   },
   {
-    id: 'rainer-haag',
-    name: 'Rainer Haag',
-    role: 'QA / QC Expert',
-    level: 'B',
-    teaserServices: 'Audits · Certifications · Compliance',
-    services: ['Beverage Confidence', 'Beverage Consulting', 'Beverage Control', 'Beverage Connect'],
-    fullProfile: `Rainer Haag is a senior quality assurance and quality control expert with more than 40 years of international experience across food, beverage, brewing, and nutraceutical environments. He has led QA/QC teams, laboratories, and compliance programs in industrial settings and is valued for translating standards into practical systems that work on real production floors.
-
-Rainer's expertise spans quality management systems, laboratory setup and leadership, analytical method validation, and certification readiness. He has strong experience with certification and audit frameworks including IFS Food, FSSC 22000, ISO 22000, GMP and HACCP, as well as additional compliance requirements such as Food Fraud/Food Defense programs and specialised certification environments (e.g., Kosher and others as required by market). He supports first-time certifications, re-certifications, and audit recovery situations where systems must be stabilised quickly and sustainably.
-
-In addition to audits, Rainer supports operational quality improvement: shelf-life programs, incoming goods control, process hygiene optimisation, and training of laboratory and production teams. He is particularly effective at building routines, clarifying responsibilities, and establishing robust documentation and control plans without creating unnecessary bureaucracy.
-
-Within BevCon, Rainer supports Beverage Confidence and Beverage Control assignments through quality audits, compliance roadmaps, lab optimisation, and capability building. His contribution is most valuable when quality systems must be strengthened fast—either to protect brand and product integrity, to satisfy customer requirements, or to prepare a plant for external certification and regulatory scrutiny.`,
-  },
-  {
     id: 'bereket-teshale',
     name: 'Bereket Teshale',
     role: 'Senior Architect',
     level: 'B',
+    image: '/portraits/TeshaleBereket_light.png',
     teaserServices: 'Industrial & brewery design',
     services: ['Beverage Construction', 'Beverage Concept', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Bereket Teshale is a senior architect and design unit leader with strong experience in industrial and brewery-related construction projects. He supports projects from concept development and detailed design through construction execution, ensuring architectural solutions are buildable, compliant, and aligned with engineering and operational requirements.
@@ -249,6 +226,7 @@ Within BevCon, Bereket supports Beverage Construction and Beverage Concept assig
     name: 'Yishak Adane Zewdie',
     role: 'Construction Manager',
     level: 'B',
+    image: '/portraits/ZewdieYishak_light.png',
     teaserServices: 'Site execution · Scheduling',
     services: ['Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Yishak Adane Zewdie is a construction manager and resident engineer with more than 15 years of experience delivering industrial and commercial construction projects from planning through completion. He provides strong on-site leadership, coordinating contractors, consultants, and suppliers to deliver works safely, on schedule, within budget, and to specification.
@@ -277,6 +255,7 @@ Etienne's background includes senior leadership roles in foods (MEA), strategic 
     name: 'Evert Boersma',
     role: 'Commercial & Marketing Manager',
     level: 'B',
+    image: '/portraits/BoersmaEvert_light.png',
     teaserServices: 'Route-to-Market · Trade Activation · Sales Force Excellence',
     services: ['Beverage Concept', 'Beverage Confidence', 'Beverage Control', 'Beverage Connect'],
     fullProfile: `Evert Boersma is an international commercial and marketing leader with extensive experience building and improving route-to-market, trade marketing, and sales execution across Africa, the Middle East, Europe, and the Caribbean. He supports beverage companies as an interim manager and consultant, strengthening commercial organisations through sales force assessments, capability building, coaching, and practical in-store execution programs.
@@ -288,25 +267,11 @@ Evert previously served as Commercial Director at a leading brewery in Rwanda, d
 // C-LEVEL – EXECUTION / SITE ROLES
 const cLevelProfiles: NetworkProfile[] = [
   {
-    id: 'josef-puc',
-    name: 'Josef Puc',
-    role: 'Mechanical Supervisor',
-    level: 'C',
-    teaserServices: 'Brewery installation & piping',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Josef Puc is a senior mechanical supervisor with more than 35 years of international experience in brewery construction, mechanical installation, and piping systems. Trained as an industrial mechanic, he has worked extensively on greenfield and brownfield brewery projects across Europe, Africa, Asia, and North America, supporting installation, supervision, and commissioning activities.
-
-Josef specialises in stainless-steel piping, tank installation, CIP systems, steel construction, and mechanical assembly within brewhouse, fermentation, utilities, and packaging interface areas. He has led and coordinated mechanical installation teams on complex sites, ensuring correct execution in accordance with drawings, specifications, hygiene requirements, and safety standards.
-
-He is particularly valued during critical installation and commissioning phases, where precise workmanship, interface coordination, and rapid problem-solving are essential to maintain schedule and quality. Josef works closely with process suppliers, civil contractors, and site management to resolve clashes, implement practical adjustments, and prepare systems for smooth commissioning and handover.
-
-Within BevCon projects, Josef provides reliable mechanical supervision that reduces rework, improves installation quality, and supports efficient transition from construction to commissioning. His calm site presence and hands-on expertise make him a trusted execution partner on demanding industrial projects.`,
-  },
-  {
     id: 'victor-makhoul',
     name: 'Victor Makhoul',
     role: 'Civil Engineer / Civil Site Manager',
     level: 'C',
+    image: '/portraits/MakhoulViktor_grey.png',
     teaserServices: 'Construction Execution · BOQs · Cost Control',
     services: ['Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
     fullProfile: `Victor Makhoul is a senior civil engineer and site manager with over 30 years of experience delivering construction projects from on-site execution through close-out. Based in Beirut, he supports clients as an independent consultant and has a long track record managing contractors, subcontractors, schedules, and quality across multi-trade projects.
@@ -316,25 +281,11 @@ Victor's core strengths include site supervision and coordination, inspection an
 Languages: Arabic (excellent), English (very good), French (very good)`,
   },
   {
-    id: 'ronny-jaster',
-    name: 'Ronny Jaster',
-    role: 'Mechanical Supervisor',
-    level: 'C',
-    teaserServices: 'Raw material handling & milling',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Ronny Jaster is a mechanical supervisor and metalwork specialist with more than 25 years of hands-on experience in raw material handling, milling systems, and bulk solids installations. Trained as a metal fabricator, he has worked continuously in mechanical installation and fabrication roles since 1997 and has been self-employed in mill construction for several years.
-
-Ronny specialises in grain mills, feed mills, storage facilities, and conveying systems used for malt, grain, and other bulk materials. His technical expertise includes bucket elevators, chain conveyors, screw conveyors, aspiration systems, and associated piping and ducting. He also brings strong welding capability (MAG, TIG/WIG, electrode), enabling efficient on-site fabrication, modification, and problem resolution.
-
-On beverage and brewery projects, Ronny supports mechanical installation, supervision, commissioning, and troubleshooting of raw material intake, storage, and conveying systems. He works closely with civil and process teams to ensure correct alignment, safe operation, and reliable material flow from day one.
-
-Within BevCon, Ronny strengthens execution capability in raw material handling and milling, contributing to robust upstream processes that are critical for stable production and overall plant performance.`,
-  },
-  {
     id: 'omar-bernal',
     name: 'Omar Bernal',
     role: 'Electrical Supervisor',
     level: 'C',
+    image: '/portraits/BernalOmar_grey.png',
     teaserServices: 'Industrial installations',
     services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
     fullProfile: `Omar Bernal is an electrical supervisor with more than 10 years of international experience in electrical installation and commissioning for large-scale brewery and industrial projects. He has supervised sizeable on-site teams in complex environments, ensuring safe execution, quality workmanship, and adherence to project schedules.
@@ -344,36 +295,6 @@ Omar's expertise covers electrical installation of power distribution systems, p
 He has worked on projects across Africa, Latin America, and the United States, often within multinational project teams and under demanding site conditions. Omar is valued for his structured approach to site coordination, clear communication with contractors and suppliers, and strong focus on safety compliance and documentation.
 
 Within BevCon projects, Omar supports installation and commissioning phases by providing reliable electrical supervision, reducing execution risk, and supporting smooth start-up and handover to operations.`,
-  },
-  {
-    id: 'tesfaye-nigussie',
-    name: 'Tesfaye Nigussie',
-    role: 'Electrical Supervisor',
-    level: 'C',
-    teaserServices: 'Automation · Utilities · Maintenance',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Tesfaye Nigussie is an experienced electrical and automation engineer with more than 12 years of hands-on experience in brewery and beverage production environments in Ethiopia. He holds a BSc in Electrical and Computer Engineering and an MBA, allowing him to combine technical execution with operational understanding.
-
-Tesfaye has held senior technical roles at Heineken Ethiopia, United Beverage S.C., Artisan Bottling S.C., and Kegna Beverages Share Company, where he acted as Electrical Supervisor during major installation, commissioning, and operational phases. His responsibilities included electrical installation and commissioning for brewing, fermentation, utilities, and packaging areas, covering power distribution, generators, automation systems, and field instrumentation.
-
-He has led electrical and maintenance teams, prepared preventive and corrective maintenance plans, managed spare parts, and supported budgeting and KPI tracking. Tesfaye is experienced in troubleshooting complex breakdowns using PLC and SCADA systems and in improving equipment availability and operational reliability.
-
-Within BevCon, Tesfaye provides strong on-site electrical supervision and commissioning support, contributing to safe execution, reliable utilities, and stable plant start-up.`,
-  },
-  {
-    id: 'michael-mario',
-    name: 'Michael Mario',
-    role: 'Civil Supervisor & Site Coordinator',
-    level: 'C',
-    teaserServices: 'Industrial & brewery construction',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Michael Mario is a senior civil engineer with more than 25 years of experience in construction supervision, structural works, and on-site coordination for large industrial and infrastructure projects in Ethiopia. He holds a BSc in Civil Engineering, a Diploma in Urban Engineering, and is a registered Professional Engineer.
-
-Michael has served as Resident Engineer, Civil Supervisor, and Site Coordinator on complex brewery and industrial projects, including Heineken Greenfield Brewery Factory (Phase I–III) and Kegna Beverages Share Company. In these roles, he represented the client on site, coordinating civil contractors, supervising structural and architectural works, and ensuring compliance with approved designs, specifications, quality standards, and schedules.
-
-His scope includes concrete and steel structures, warehouses, utilities buildings, foundations, roads, and site infrastructure, as well as inspection of materials, verification of quantities, and approval of payment certificates. Michael works closely with international consultants, EPC partners, and local contractors to manage interfaces and resolve site issues efficiently.
-
-Within BevCon, Michael provides reliable civil supervision and site coordination, strengthening execution quality and predictability during construction phases.`,
   },
 ];
 

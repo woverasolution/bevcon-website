@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { 
-  TrendingUp, 
-  Landmark, 
-  Settings, 
+import {
+  TrendingUp,
+  Landmark,
+  Settings,
   CheckCircle2
 } from "lucide-react";
 
@@ -51,31 +50,52 @@ export default function BeverageConcept() {
       id="concept"
       className="relative min-h-screen overflow-hidden bg-slate-50 flex items-center py-16 sm:py-20 lg:py-0"
     >
-      {/* Background Elements */}
+      {/* Background Elements - Desktop only */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-white z-0 hidden lg:block" />
-      
-      {/* Dynamic Background Image - Right Side */}
-      <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 overflow-hidden">
+
+      {/* Dynamic Background Video - Desktop only (right side) */}
+      <div className="absolute top-0 right-0 w-[45%] h-full z-0 overflow-hidden hidden lg:block">
         <motion.div className="relative w-full h-full" style={{ y: imageY, scale: 1.1 }}>
-          <Image
-            src="/images/beverage1.jpg"
-            alt="Beverage concept planning and engineering"
-            fill
-            className="object-cover opacity-10 lg:opacity-100"
-            priority
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/beer-pour.mp4" type="video/mp4" />
+          </video>
           {/* Gradient Overlay for blending */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-slate-50 lg:via-white/20 lg:to-slate-50" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-slate-50" />
         </motion.div>
       </div>
 
       <div className="container-width w-full relative z-10 px-4 sm:px-6">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 lg:gap-16 xl:gap-24 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 lg:gap-16 xl:gap-24 items-center">
+
+          {/* Mobile Video Section - Stacked before content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-[50vh] sm:h-[60vh] rounded-2xl overflow-hidden lg:hidden order-1"
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/videos/beer-pour.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
 
           {/* Left Column: Main Content */}
           <motion.div
             style={{ y: contentY, opacity }}
-            className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:pr-8 xl:pr-12"
+            className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:pr-8 xl:pr-12 order-2 lg:order-none"
           >
             <div className="space-y-3 sm:space-y-4">
               <motion.h2
@@ -139,7 +159,7 @@ export default function BeverageConcept() {
           </motion.div>
 
           {/* Right Column: Strategic Outcomes (Overlapping the image area on desktop) */}
-          <div className="relative lg:block">
+          <div className="relative lg:block order-3 lg:order-none">
             <div className="relative space-y-4 sm:space-y-5 lg:space-y-6 bg-white/80 backdrop-blur-md p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-xl lg:ml-8">
               {highlights.map((item, index) => (
                 <motion.div

@@ -86,12 +86,12 @@ export default function BeverageConstruction() {
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-end">
-        <div className="container-width w-full pb-12 sm:pb-14 md:pb-16 lg:pb-24 px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-end">
+        <div className="container-width w-full pb-12 sm:pb-16 md:pb-20 lg:pb-24">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-end">
             {/* Main Content Card */}
             <motion.div
               style={{ y: cardY }}
-              className="bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl"
+              className="bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl"
             >
               {/* Headline */}
               <motion.h2
@@ -111,7 +111,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mt-2 sm:mt-3 text-lg sm:text-xl font-semibold text-[#ffbb3a]"
+                className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl font-semibold text-[#ffbb3a]"
               >
                 From Concept to Operational Handover
               </motion.p>
@@ -122,7 +122,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-200 leading-relaxed max-w-lg"
+                className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed"
               >
                 We deliver beverage projects from concept to handover. As your independent engineering partner, we bring structure and execution discipline to complex plants, protecting your interests in cost, time, and quality.
               </motion.p>
@@ -133,7 +133,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8 sm:mt-9 md:mt-10 relative group/timeline"
+                className="mt-8 sm:mt-10 md:mt-12 relative group/timeline"
               >
                 {/* Scroll Button Left */}
                 <AnimatePresence>
@@ -142,11 +142,11 @@ export default function BeverageConstruction() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-950 to-transparent z-20 flex items-center justify-start pl-0 pointer-events-none group-hover/timeline:pointer-events-auto"
+                      className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-r from-slate-950/95 to-transparent z-20 flex items-center justify-start pl-1"
                     >
                       <button
                         onClick={scrollLeft}
-                        className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all backdrop-blur-sm"
+                        className="p-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 text-white/80 hover:text-white transition-all backdrop-blur-sm shadow-lg pointer-events-auto"
                         aria-label="Scroll left"
                       >
                         <ChevronLeft className="w-4 h-4" />
@@ -162,11 +162,11 @@ export default function BeverageConstruction() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-950 to-transparent z-20 flex items-center justify-end pr-0 pointer-events-none group-hover/timeline:pointer-events-auto"
+                      className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-slate-950/95 to-transparent z-20 flex items-center justify-end pr-1"
                     >
                       <button
                         onClick={scrollRight}
-                        className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all backdrop-blur-sm"
+                        className="p-2 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 text-white/80 hover:text-white transition-all backdrop-blur-sm shadow-lg pointer-events-auto"
                         aria-label="Scroll right"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -177,7 +177,8 @@ export default function BeverageConstruction() {
 
                 <div
                   ref={scrollContainerRef}
-                  className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-hide px-1 -mx-2 sm:mx-0"
+                  className="flex items-center gap-0 overflow-x-auto pb-3 scrollbar-hide scroll-smooth"
+                  style={{ WebkitOverflowScrolling: 'touch' }}
                 >
                   {timelineSteps.map((step, index) => (
                     <motion.div
@@ -188,16 +189,16 @@ export default function BeverageConstruction() {
                       transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                       className="flex items-center flex-shrink-0"
                     >
-                      <div className="flex flex-col items-center gap-1.5 sm:gap-2">
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
-                          <step.icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-[#ffbb3a]" />
+                      <div className="flex flex-col items-center gap-2 sm:gap-2.5">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
+                          <step.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#ffbb3a]" />
                         </div>
-                        <span className="text-[10px] sm:text-xs font-medium text-gray-300 whitespace-nowrap">
+                        <span className="text-xs sm:text-sm font-medium text-gray-300 whitespace-nowrap">
                           {step.label}
                         </span>
                       </div>
                       {index < timelineSteps.length - 1 && (
-                        <div className="w-6 sm:w-7 md:w-8 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-1.5 sm:mx-2 mt-[-16px] sm:mt-[-18px] md:mt-[-20px]" />
+                        <div className="w-8 sm:w-10 md:w-12 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-2 sm:mx-3 md:mx-4 mb-6 sm:mb-7 md:mb-8" />
                       )}
                     </motion.div>
                   ))}
@@ -211,7 +212,7 @@ export default function BeverageConstruction() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 lg:flex lg:flex-col"
+              className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-1 gap-3 sm:gap-4 md:gap-5"
             >
               {[
                 { title: "Fewer Surprises", desc: "During installation & commissioning" },
@@ -225,10 +226,10 @@ export default function BeverageConstruction() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.15 }}
-                  className="bg-slate-950/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/10 shadow-lg group hover:border-[#ffbb3a]/30 transition-colors"
+                  className="bg-slate-950/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 border border-white/10 shadow-lg group hover:border-[#ffbb3a]/30 transition-colors"
                 >
-                  <p className="text-base sm:text-lg lg:text-xl font-bold text-[#ffbb3a] group-hover:text-[#ffbb3a] transition-colors">{item.title}</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-0.5 sm:mt-1">{item.desc}</p>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#ffbb3a] group-hover:text-[#ffbb3a] transition-colors">{item.title}</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1 sm:mt-1.5">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
