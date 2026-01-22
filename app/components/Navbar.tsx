@@ -72,7 +72,7 @@ export default function Navbar() {
           scrolled ? "scale-x-100" : "scale-x-0"
         )} />
 
-        <div className="max-w-[95%] xl:max-w-[1600px] mx-auto px-4 md:px-6">
+        <div className="max-w-[95%] xl:max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -88,13 +88,13 @@ export default function Navbar() {
                     height={40}
                     className={cn(
                       "w-auto transition-all duration-300",
-                      scrolled ? "h-7" : "h-9"
+                      scrolled ? "h-6 sm:h-7" : "h-7 sm:h-9"
                     )}
                     priority
                   />
                 </div>
                 <span className={cn(
-                  "text-[9px] font-bold tracking-[0.25em] transition-all duration-300 ml-1 uppercase",
+                  "text-[8px] sm:text-[9px] font-bold tracking-[0.25em] transition-all duration-300 ml-1 uppercase hidden xs:block sm:block",
                   scrolled ? "text-slate-500 opacity-80" : "text-slate-600"
                 )}>
                   Built for Reality

@@ -86,12 +86,12 @@ export default function BeverageConstruction() {
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-end">
-        <div className="container-width w-full pb-16 lg:pb-24">
-          <div className="grid lg:grid-cols-2 gap-8 items-end">
+        <div className="container-width w-full pb-12 sm:pb-14 md:pb-16 lg:pb-24 px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-end">
             {/* Main Content Card */}
             <motion.div
               style={{ y: cardY }}
-              className="bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl"
+              className="bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl"
             >
               {/* Headline */}
               <motion.h2
@@ -99,7 +99,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
               >
                 Beverage
                 <span className="block">Construction</span>
@@ -111,7 +111,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mt-3 text-xl font-semibold text-[#ffbb3a]"
+                className="mt-2 sm:mt-3 text-lg sm:text-xl font-semibold text-[#ffbb3a]"
               >
                 From Concept to Operational Handover
               </motion.p>
@@ -122,7 +122,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-4 text-base text-gray-200 leading-relaxed max-w-lg"
+                className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-200 leading-relaxed max-w-lg"
               >
                 We deliver beverage projects from concept to handover. As your independent engineering partner, we bring structure and execution discipline to complex plants, protecting your interests in cost, time, and quality.
               </motion.p>
@@ -133,7 +133,7 @@ export default function BeverageConstruction() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-10 relative group/timeline"
+                className="mt-8 sm:mt-9 md:mt-10 relative group/timeline"
               >
                 {/* Scroll Button Left */}
                 <AnimatePresence>
@@ -175,9 +175,9 @@ export default function BeverageConstruction() {
                   )}
                 </AnimatePresence>
 
-                <div 
+                <div
                   ref={scrollContainerRef}
-                  className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide px-1"
+                  className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-hide px-1 -mx-2 sm:mx-0"
                 >
                   {timelineSteps.map((step, index) => (
                     <motion.div
@@ -188,16 +188,16 @@ export default function BeverageConstruction() {
                       transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                       className="flex items-center flex-shrink-0"
                     >
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="w-12 h-12 rounded-xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
-                          <step.icon className="w-5 h-5 text-[#ffbb3a]" />
+                      <div className="flex flex-col items-center gap-1.5 sm:gap-2">
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
+                          <step.icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-[#ffbb3a]" />
                         </div>
-                        <span className="text-xs font-medium text-gray-300 whitespace-nowrap">
+                        <span className="text-[10px] sm:text-xs font-medium text-gray-300 whitespace-nowrap">
                           {step.label}
                         </span>
                       </div>
                       {index < timelineSteps.length - 1 && (
-                        <div className="w-8 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-2 mt-[-20px]" />
+                        <div className="w-6 sm:w-7 md:w-8 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-1.5 sm:mx-2 mt-[-16px] sm:mt-[-18px] md:mt-[-20px]" />
                       )}
                     </motion.div>
                   ))}
@@ -211,7 +211,7 @@ export default function BeverageConstruction() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:flex flex-col gap-4"
+              className="grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 lg:flex lg:flex-col"
             >
               {[
                 { title: "Fewer Surprises", desc: "During installation & commissioning" },
@@ -225,10 +225,10 @@ export default function BeverageConstruction() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.15 }}
-                  className="bg-slate-950/80 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-lg group hover:border-[#ffbb3a]/30 transition-colors"
+                  className="bg-slate-950/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/10 shadow-lg group hover:border-[#ffbb3a]/30 transition-colors"
                 >
-                  <p className="text-xl font-bold text-[#ffbb3a] group-hover:text-[#ffbb3a] transition-colors">{item.title}</p>
-                  <p className="text-sm text-gray-300 mt-1">{item.desc}</p>
+                  <p className="text-base sm:text-lg lg:text-xl font-bold text-[#ffbb3a] group-hover:text-[#ffbb3a] transition-colors">{item.title}</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-0.5 sm:mt-1">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
