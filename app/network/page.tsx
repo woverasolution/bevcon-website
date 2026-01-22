@@ -192,13 +192,14 @@ function NetworkProfileCard({ profile, index }: { profile: NetworkProfile; index
     >
     <FlippingCard
         className="w-full h-[340px] sm:h-[380px] md:h-[400px]"
+        href={`/network/${profile.id}`}
       frontContent={
         <div className="flex flex-col h-full w-full">
           <div className="h-3/5 w-full relative overflow-hidden rounded-t-lg">
               {hasImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
             <img 
-                  src={profile.image} 
+                  src={profile.image}
               alt={profile.name} 
               className="w-full h-full object-cover object-center" 
             />
@@ -295,11 +296,11 @@ function LevelSection({ level }: { level: ProfileLevel }) {
 function NetworkVisualization() {
   return (
     <svg 
-      className="absolute inset-0 w-full h-full opacity-[0.04]"
+      className="absolute inset-0 w-full h-full opacity-[0.08]"
       viewBox="0 0 800 400"
       preserveAspectRatio="xMidYMid slice"
     >
-      <g stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.6">
+      <g stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.4">
         <line x1="100" y1="200" x2="250" y2="100" />
         <line x1="100" y1="200" x2="250" y2="300" />
         <line x1="250" y1="100" x2="400" y2="150" />
@@ -313,12 +314,12 @@ function NetworkVisualization() {
         <line x1="250" y1="300" x2="400" y2="150" />
       </g>
       
-      <g fill="#ffffff" opacity="0.5">
+      <g fill="#ffffff" opacity="0.3">
         <circle cx="100" cy="200" r="5" />
         <circle cx="250" cy="100" r="4" />
         <circle cx="250" cy="300" r="4" />
-        <circle cx="400" cy="150" r="6" fill="#ffbb3a" opacity="0.8" />
-        <circle cx="400" cy="250" r="6" fill="#ffbb3a" opacity="0.8" />
+        <circle cx="400" cy="150" r="6" fill="#ffbb3a" opacity="1" />
+        <circle cx="400" cy="250" r="6" fill="#ffbb3a" opacity="1" />
         <circle cx="550" cy="100" r="4" />
         <circle cx="550" cy="300" r="4" />
         <circle cx="700" cy="200" r="5" />
@@ -333,14 +334,15 @@ export default function NetworkPage() {
       <Navbar />
       <main className="flex-grow pt-20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-[#455660] py-12 sm:py-16 md:py-20 lg:py-24">
+        <section className="relative overflow-hidden bg-[#0B1120] py-12 sm:py-16 md:py-20 lg:py-24">
           {/* Background Elements */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/90 to-[#0B1120]" />
+            <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
             <div className="hidden sm:block">
               <NetworkVisualization />
             </div>
-            <div className="absolute top-[-10%] right-[5%] w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] bg-[#ffbb3a]/8 rounded-full blur-[80px] sm:blur-[100px]" />
+            <div className="absolute top-[-10%] right-[5%] w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] bg-[#ffbb3a]/10 rounded-full blur-[80px] sm:blur-[100px]" />
             <div className="absolute bottom-[-15%] left-[10%] w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-white/5 rounded-full blur-[60px] sm:blur-[80px]" />
           </div>
           
@@ -377,7 +379,7 @@ export default function NetworkPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="text-sm sm:text-base md:text-lg text-white/75 leading-relaxed max-w-2xl mb-8 sm:mb-10"
+                className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8 sm:mb-10"
               >
                 BevCon&apos;s leadership directs projects by collaborating with a carefully selected network of subject matter experts—proven engineers, operational leaders, and strategists deploying specific expertise exactly where your project requires it.
               </motion.p>
@@ -396,7 +398,7 @@ export default function NetworkPage() {
                 ].map((stat, i) => (
                   <div key={i}>
                     <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-0.5">{stat.value}</div>
-                    <div className="text-[10px] sm:text-xs text-white/50 font-medium">{stat.label}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium">{stat.label}</div>
                   </div>
                 ))}
               </motion.div>

@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, Wrench, TrendingUp, CheckCircle2, Users, Clock, ShieldCheck } from "lucide-react";
-import { cn } from "@/app/lib/utils";
+import { Briefcase, Wrench, TrendingUp, CheckCircle2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const services = [
   {
@@ -30,132 +30,206 @@ const benefits = [
   "Risk Mitigation"
 ];
 
+// Subtle animated network nodes
+function NetworkVisualization() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | undefined>(undefined);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const nodeCount = 10;
+    const nodes: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
+    
+    const rect = canvas.getBoundingClientRect();
+    
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        radius: 3
+      });
+    }
+
+    const animate = () => {
+      const rect = canvas.getBoundingClientRect();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+
+      nodes.forEach((node) => {
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0 || node.x > rect.width) node.vx *= -1;
+        if (node.y < 0 || node.y > rect.height) node.vy *= -1;
+      });
+
+      // Draw connections
+      ctx.strokeStyle = "rgba(69, 86, 96, 0.06)";
+      ctx.lineWidth = 1;
+      
+      nodes.forEach((nodeA, i) => {
+        nodes.forEach((nodeB, j) => {
+          if (i >= j) return;
+          const dist = Math.hypot(nodeA.x - nodeB.x, nodeA.y - nodeB.y);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.moveTo(nodeA.x, nodeA.y);
+            ctx.lineTo(nodeB.x, nodeB.y);
+            ctx.globalAlpha = 1 - dist / 140;
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+          }
+        });
+      });
+
+      // Draw nodes
+      nodes.forEach((node) => {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(69, 86, 96, 0.15)";
+        ctx.fill();
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isClient]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ opacity: 0.5 }}
+    />
+  );
+}
+
 export default function BeverageConnect() {
   return (
     <section id="connect" className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-1/4 -left-64 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-         <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      {/* Subtle Network Background */}
+      <div className="absolute inset-0">
+        <NetworkVisualization />
       </div>
 
       <div className="container-width relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
+            Beverage
+            <span className="block text-[#ffbb3a]">Connect</span>
+          </h2>
           
-          {/* Left Column: Visuals */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative order-2 lg:order-1"
-          >
-            {/* Main Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-                alt="Beverage Industry Professionals"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-            </div>
+          <p className="mt-6 text-lg lg:text-xl text-slate-600 leading-relaxed">
+            We bridge the gap between permanent staff and external consultants by deploying 
+            senior industry professionals for critical project phases.
+          </p>
+        </motion.div>
 
-            {/* Floating Card: Expert Profile */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-8 -right-4 md:bottom-8 md:-right-8 bg-white p-5 rounded-xl shadow-xl border border-slate-100 max-w-[260px]"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden relative">
-                   <Image 
-                     src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=150&q=80"
-                     alt="Expert Engineer"
-                     width={48}
-                     height={48}
-                     className="object-cover w-full h-full"
-                   />
-                </div>
-                <div>
-                  <p className="font-bold text-slate-900 text-sm">Senior Engineer</p>
-                  <div className="flex items-center gap-1">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-xs text-slate-500">Available Now</p>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                "Deploying technical expertise exactly when you need it."
-              </p>
-            </motion.div>
-
-            {/* Decorative Elements */}
-            <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-primary/5 rounded-3xl" />
-          </motion.div>
-
-          {/* Right Column: Content */}
-          <div className="order-1 lg:order-2">
+        {/* Services - No Cards */}
+        <div className="grid md:grid-cols-3 gap-12 lg:gap-16 mb-16">
+          {services.map((service, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-                Beverage
-                <span className="block text-primary">Connect</span>
-              </h2>
-              <p className="text-xl text-accent font-medium mb-6">
-                Expert Assignments & Interim Support
-              </p>
-              <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-lg">
-                We bridge the gap between permanent staff and external consultants by deploying senior industry professionals for critical project phases.
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center mb-5">
+                <service.icon className="w-6 h-6 text-[#ffbb3a]" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-slate-500 leading-relaxed">
+                {service.description}
               </p>
             </motion.div>
+          ))}
+        </div>
 
-            {/* Services List */}
-            <div className="space-y-6 mb-10">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow group"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-lg mb-1">{service.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{service.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+        {/* Divider */}
+        <div className="border-t border-slate-200 my-12" />
 
-            {/* Benefits Tags */}
-            <motion.div 
+        {/* Benefits & CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-center justify-between gap-8"
+        >
+          {/* Benefits */}
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={benefit}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+                className="flex items-center gap-2"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#ffbb3a]" />
+                <span className="text-slate-700 font-medium">{benefit}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <Link href="/network">
+            <motion.button
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-x-6 gap-y-3"
+              className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors shrink-0"
             >
-              {benefits.map((benefit) => (
-                <div key={benefit} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-medium text-slate-700">{benefit}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-        </div>
+              Explore Our Network
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

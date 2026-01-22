@@ -28,8 +28,23 @@ export default function HeroSection() {
   const handleScrollDown = () => {
     window.scrollTo({
       top: window.innerHeight,
-      behavior: "smooth",
+      behavior: "auto",
     });
+  };
+
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    const id = hash.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "auto"
+      });
+    }
   };
 
   // Floating particles for visual interest
@@ -104,6 +119,7 @@ export default function HeroSection() {
           >
             <motion.a
               href="#services"
+              onClick={(e) => handleHashClick(e, "#services")}
               className="group relative px-8 py-4 bg-gradient-to-r from-accent to-blue-600 text-white font-bold text-lg rounded-lg shadow-2xl hover:shadow-accent/50 transition-all duration-300 flex items-center gap-3"
               whileHover={
                 prefersReducedMotion ? {} : { scale: 1.05, y: -3 }
@@ -116,9 +132,10 @@ export default function HeroSection() {
                 Explore Our Services
               </span>
             </motion.a>
-            
+
             <motion.a
               href="#contact"
+              onClick={(e) => handleHashClick(e, "#contact")}
               className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold text-lg rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center gap-3 shadow-xl"
               whileHover={
                 prefersReducedMotion ? {} : { scale: 1.05, y: -3 }

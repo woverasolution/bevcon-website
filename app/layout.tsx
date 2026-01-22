@@ -16,6 +16,14 @@ const titilliumWeb = Titillium_Web({
 export const metadata: Metadata = {
   title: "BevCon – Concept, Construction & Confidence",
   description: "BevCon partners with investors to plan, structure, and deliver beverage projects worldwide.",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-icon.svg', type: 'image/svg+xml' },
+    ],
+  },
 };
 
 export default function RootLayout({

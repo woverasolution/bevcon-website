@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { cn } from "@/app/lib/utils";
 
 interface FlippingCardProps {
@@ -7,6 +9,7 @@ interface FlippingCardProps {
   width?: number;
   frontContent?: React.ReactNode;
   backContent?: React.ReactNode;
+  href?: string;
 }
 
 export function FlippingCard({
@@ -15,7 +18,17 @@ export function FlippingCard({
   backContent,
   height = 300,
   width = 350,
+  href,
 }: FlippingCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = () => {
+    if (href && window.innerWidth < 768) {
+      // On mobile (md breakpoint), navigate directly
+      window.location.href = href;
+    }
+  };
+
   return (
     <div
       className="group/flipping-card [perspective:1000px]"
@@ -25,11 +38,16 @@ export function FlippingCard({
           "--width": `${width}px`,
         } as React.CSSProperties
       }
+      onClick={handleClick}
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
     >
       <div
         className={cn(
-          "relative rounded-xl border border-neutral-200 bg-white shadow-lg transition-all duration-700 [transform-style:preserve-3d] group-hover/flipping-card:[transform:rotateY(180deg)] dark:border-neutral-800 dark:bg-neutral-950",
+          "relative rounded-xl border border-neutral-200 bg-white shadow-lg transition-all duration-700 [transform-style:preserve-3d] dark:border-neutral-800 dark:bg-neutral-950",
           "h-[var(--height)] w-[var(--width)]",
+          isFlipped && "[transform:rotateY(180deg)]",
+          href && "md:cursor-default cursor-pointer",
           className
         )}
       >

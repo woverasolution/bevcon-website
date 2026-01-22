@@ -56,7 +56,7 @@ export default function CTASection() {
               Partner with BevCon to plan, structure, and deliver your next beverage facility with confidence. From concept to operation, we bring the engineering expertise and project discipline that investors trust.
             </p>
             <motion.a
-              href="mailto:contact@bevcon.net"
+              href="mailto:bier@bevcon.net"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary inline-flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-slate-100 px-8 py-3 text-lg font-medium"
