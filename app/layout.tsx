@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Titillium_Web } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -81,6 +82,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://bevcon.com',
   },
+  verification: {
+    google: 'DlzYHzQj9hYnHkjriGyW7ye8LQ2Yfe4L8y48TKZ-pUU',
+  },
 };
 
 export default function RootLayout({
@@ -125,6 +129,7 @@ export default function RootLayout({
         className={`${titilliumWeb.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
