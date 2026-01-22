@@ -36,14 +36,9 @@ export default function Footer() {
           <div className="space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold text-white">Contact</h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
-              <li><a href="mailto:info@bevcon.com" className="hover:text-white transition-colors">info@bevcon.com</a></li>
+              <li><a href="mailto:info@bevcon.net" className="hover:text-white transition-colors">info@bevcon.net</a></li>
               <li>Global Operations</li>
             </ul>
-            <div className="pt-3 sm:pt-4">
-              <a href="mailto:info@bevcon.com" className="btn-primary inline-block text-center w-full sm:w-auto">
-                Contact an Expert
-              </a>
-            </div>
           </div>
         </div>
 

@@ -145,7 +145,7 @@ export default function HeroLightAnimated() {
             y: [0, 50, 0]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-slate-200/60 rounded-full blur-[120px]"
+          className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-stone-200/60 rounded-full blur-[120px]"
         />
       </div>
 

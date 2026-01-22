@@ -29,27 +29,27 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
           <div className="container-width">
             <Link
               href="/network"
-              className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 mb-8 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 mb-8 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Network</span>
             </Link>
 
             <article className="max-w-4xl">
-              <div className="mb-8 pb-6 border-b border-slate-200">
+              <div className="mb-8 pb-6 border-b border-stone-200">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-3">
                   Profile
                 </p>
-                <h1 className="text-4xl font-semibold text-slate-900 md:text-5xl mb-4">
+                <h1 className="text-4xl font-semibold text-stone-900 md:text-5xl mb-4">
                   {profile.name}
                 </h1>
-                <p className="text-xl font-semibold text-slate-700">
+                <p className="text-xl font-semibold text-stone-700">
                   {profile.role}
                 </p>
               </div>
 
               <div className="prose prose-lg max-w-none mb-10">
-                <div className="text-slate-700 leading-relaxed text-base">
+                <div className="text-stone-700 leading-relaxed text-base">
                   {profile.fullProfile.split('\n\n').map((paragraph, index) => (
                     <p key={index} className="mb-5">
                       {paragraph}
@@ -58,8 +58,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <p className="font-semibold text-slate-900 text-base leading-relaxed">
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+                <p className="font-semibold text-stone-900 text-base leading-relaxed">
                   {servicesLine}
                 </p>
               </div>

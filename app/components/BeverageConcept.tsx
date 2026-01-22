@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 import {
   TrendingUp,
   Landmark,
@@ -35,6 +35,17 @@ const highlights = [
 
 export default function BeverageConcept() {
   const sectionRef = useRef<HTMLElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  useEffect(() => {
+    if (isInView) {
+      desktopVideoRef.current?.play();
+      mobileVideoRef.current?.play();
+    }
+  }, [isInView]);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -48,7 +59,7 @@ export default function BeverageConcept() {
     <section
       ref={sectionRef}
       id="concept"
-      className="relative min-h-screen overflow-hidden bg-slate-50 flex items-center py-16 sm:py-20 lg:py-0"
+      className="relative min-h-screen overflow-hidden bg-stone-50 flex items-center py-16 sm:py-20 lg:py-0"
     >
       {/* Background Elements - Desktop only */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-white z-0 hidden lg:block" />
@@ -57,8 +68,7 @@ export default function BeverageConcept() {
       <div className="absolute top-0 right-0 w-[45%] h-full z-0 overflow-hidden hidden lg:block">
         <motion.div className="relative w-full h-full" style={{ y: imageY, scale: 1.1 }}>
           <video
-            autoPlay
-            loop
+            ref={desktopVideoRef}
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
@@ -66,7 +76,7 @@ export default function BeverageConcept() {
             <source src="/videos/beer-pour.mp4" type="video/mp4" />
           </video>
           {/* Gradient Overlay for blending */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-slate-50" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-stone-50" />
         </motion.div>
       </div>
 
@@ -82,8 +92,7 @@ export default function BeverageConcept() {
             className="w-full h-[50vh] sm:h-[60vh] rounded-2xl overflow-hidden lg:hidden order-1"
           >
             <video
-              autoPlay
-              loop
+              ref={mobileVideoRef}
               muted
               playsInline
               className="w-full h-full object-cover"
@@ -103,7 +112,7 @@ export default function BeverageConcept() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 leading-tight"
               >
                 Beverage
                 <span className="block text-[#ffbb3a]">Concept</span>
@@ -114,9 +123,9 @@ export default function BeverageConcept() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 font-light max-w-2xl"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-stone-600 font-light max-w-2xl"
               >
-                Turning ideas into <span className="text-slate-900 font-medium">robust, bankable concepts</span> by combining market insight, financial modelling, and practical engineering.
+                Turning ideas into <span className="text-stone-900 font-medium">robust, bankable concepts</span> by combining market insight, financial modelling, and practical engineering.
               </motion.p>
             </div>
 
@@ -134,8 +143,8 @@ export default function BeverageConcept() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-3 sm:mb-4 border-l-2 border-[#ffbb3a] pl-3 sm:pl-4">
                     <pillar.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffbb3a]" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">{pillar.title}</h3>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{pillar.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-stone-900 mb-2 sm:mb-3">{pillar.title}</h3>
+                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed">{pillar.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -145,10 +154,10 @@ export default function BeverageConcept() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="pt-5 sm:pt-6 border-t border-slate-200"
+              className="pt-5 sm:pt-6 border-t border-stone-200"
             >
-               <p className="text-xs sm:text-sm text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">Trusted by Financing Institutions</p>
-               <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 text-xs sm:text-sm font-medium text-slate-500">
+               <p className="text-xs sm:text-sm text-stone-400 uppercase tracking-widest mb-3 sm:mb-4">Trusted by Financing Institutions</p>
+               <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 text-xs sm:text-sm font-medium text-stone-500">
                   {["Afrexim Bank", "DEG / KfW", "BOAD", "IFU", "Euler Hermes"].map(bank => (
                     <span key={bank} className="flex items-center gap-1.5 sm:gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffbb3a] flex-shrink-0" /> {bank}
@@ -160,7 +169,7 @@ export default function BeverageConcept() {
 
           {/* Right Column: Strategic Outcomes (Overlapping the image area on desktop) */}
           <div className="relative lg:block order-3 lg:order-none">
-            <div className="relative space-y-4 sm:space-y-5 lg:space-y-6 bg-white/80 backdrop-blur-md p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-xl lg:ml-8">
+            <div className="relative space-y-4 sm:space-y-5 lg:space-y-6 bg-white/80 backdrop-blur-md p-6 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl border border-stone-100 shadow-xl lg:ml-8">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -168,12 +177,12 @@ export default function BeverageConcept() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.15 }}
-                  className="relative pl-4 sm:pl-5 lg:pl-6 border-l-2 border-slate-200 hover:border-[#ffbb3a] transition-colors group py-1"
+                  className="relative pl-4 sm:pl-5 lg:pl-6 border-l-2 border-stone-200 hover:border-[#ffbb3a] transition-colors group py-1"
                 >
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1 group-hover:text-[#ffbb3a] transition-colors">
+                  <h4 className="text-lg sm:text-xl font-bold text-stone-900 mb-1 group-hover:text-[#ffbb3a] transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-slate-500 text-xs sm:text-sm">
+                  <p className="text-stone-500 text-xs sm:text-sm">
                     {item.desc}
                   </p>
                 </motion.div>

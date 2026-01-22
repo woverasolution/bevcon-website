@@ -174,7 +174,7 @@ export default function ServicesGrid() {
             </div>
             <div className="space-y-4 text-sm text-slate-600">
               <p>+00 1234 5678</p>
-              <p>contact@bevcon.com</p>
+              <p>contact@bevcon.net</p>
               <p>123 West St., Suite 456, Your-City 12345</p>
               <button className="btn-primary w-full">Schedule a Briefing</button>
             </div>

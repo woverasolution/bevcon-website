@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 
@@ -148,15 +149,13 @@ export default function HeroLightAnimated() {
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 25%)"
           }}
         >
-           <video
-            autoPlay
-            loop
-            muted
-            playsInline
+           <Image
+            src="/images/beverage-visual-01.png"
+            alt="Beverage Concept Visual"
+            fill
+            priority
             className="absolute inset-0 w-full h-full object-cover object-center"
-          >
-            <source src="/videos/facility-aerial.mp4" type="video/mp4" />
-          </video>
+          />
           
           {/* Subtle overlay to harmonize with site colors */}
           <div className="absolute inset-0 bg-[#455660]/10 mix-blend-overlay pointer-events-none" />
@@ -166,15 +165,13 @@ export default function HeroLightAnimated() {
       {/* Mobile Video Background (Optional - lighter version or keeping it clean? Let's show it but with heavy overlay) */}
       <div className="absolute inset-0 z-0 lg:hidden overflow-hidden">
         <div className="absolute inset-0 bg-[#F7F4F0]/90 z-10" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <Image
+          src="/images/beverage-visual-01.png"
+          alt="Beverage Concept Visual"
+          fill
+          priority
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/facility-aerial.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       {/* 3. Main Content Content */}

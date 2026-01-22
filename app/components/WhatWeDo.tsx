@@ -114,7 +114,7 @@ export default function WhatWeDo() {
               What We Do
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light leading-relaxed px-4">
-              We turn the complexities of the beverage industry into clear advantages by handling the critical <span className="font-semibold text-[#ffbb3a]">"Cons"</span> related to your project.
+              We turn the complexities of the beverage industry into clear advantages by handling the important <span className="font-semibold text-[#ffbb3a]">C's</span> related to your project.
             </p>
           </motion.div>
         </div>

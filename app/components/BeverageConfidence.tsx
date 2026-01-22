@@ -34,7 +34,7 @@ export default function BeverageConfidence() {
             style={{ y: imageY }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80"
+              src="/images/medium-shot-working-beer-factory (1).jpg"
               alt="Modern beverage production line"
               fill
               className="object-cover scale-110"

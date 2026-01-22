@@ -12,7 +12,7 @@ export default function NotFound() {
           <div className="container-width">
             <Link
               href="/network"
-              className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 mb-8 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 mb-8 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Network</span>
@@ -22,10 +22,10 @@ export default function NotFound() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-3">
                 Not Found
               </p>
-              <h1 className="text-4xl font-semibold text-slate-900 md:text-5xl mb-4">
+              <h1 className="text-4xl font-semibold text-stone-900 md:text-5xl mb-4">
                 Profile Not Found
               </h1>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-lg text-stone-600 mb-8 leading-relaxed">
                 The profile you're looking for doesn't exist or is not available.
               </p>
               <Link
