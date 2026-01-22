@@ -68,7 +68,7 @@ export default function BeverageConstruction() {
     <section
       ref={sectionRef}
       id="construction"
-      className="relative min-h-screen overflow-hidden bg-slate-950"
+      className="relative min-h-screen overflow-x-hidden bg-slate-950"
     >
       {/* Full-Bleed Background Image */}
       <motion.div className="absolute inset-0" style={{ scale: imageScale }}>
@@ -85,8 +85,8 @@ export default function BeverageConstruction() {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-screen flex items-end">
-        <div className="container-width w-full pb-12 sm:pb-16 md:pb-20 lg:pb-24">
+      <div className="relative z-10 min-h-screen flex items-start md:items-end">
+        <div className="container-width w-full pt-12 sm:pt-16 md:pt-0 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-end">
             {/* Main Content Card */}
             <motion.div
@@ -142,7 +142,7 @@ export default function BeverageConstruction() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-r from-slate-950/95 to-transparent z-20 flex items-center justify-start pl-1"
+                      className="hidden sm:flex absolute left-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-r from-slate-950/95 to-transparent z-20 items-center justify-start pl-1"
                     >
                       <button
                         onClick={scrollLeft}
@@ -162,7 +162,7 @@ export default function BeverageConstruction() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-slate-950/95 to-transparent z-20 flex items-center justify-end pr-1"
+                      className="hidden sm:flex absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-slate-950/95 to-transparent z-20 items-center justify-end pr-1"
                     >
                       <button
                         onClick={scrollRight}
@@ -177,7 +177,7 @@ export default function BeverageConstruction() {
 
                 <div
                   ref={scrollContainerRef}
-                  className="flex items-center gap-0 overflow-x-auto pb-3 scrollbar-hide scroll-smooth"
+                  className="flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-0 overflow-visible sm:overflow-x-auto pb-0 sm:pb-3 scrollbar-hide sm:scroll-smooth"
                   style={{ WebkitOverflowScrolling: 'touch' }}
                 >
                   {timelineSteps.map((step, index) => (
@@ -198,7 +198,7 @@ export default function BeverageConstruction() {
                         </span>
                       </div>
                       {index < timelineSteps.length - 1 && (
-                        <div className="w-8 sm:w-10 md:w-12 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-2 sm:mx-3 md:mx-4 mb-6 sm:mb-7 md:mb-8" />
+                        <div className="hidden sm:block w-8 sm:w-10 md:w-12 h-px bg-gradient-to-r from-[#ffbb3a]/50 to-white/10 mx-2 sm:mx-3 md:mx-4 mb-6 sm:mb-7 md:mb-8" />
                       )}
                     </motion.div>
                   ))}

@@ -4,11 +4,49 @@ import { getProfileById, allProfiles } from "../../lib/network-data";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   return allProfiles.map((profile) => ({
     id: profile.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const profile = getProfileById(id);
+
+  if (!profile) {
+    return {
+      title: "Profile Not Found",
+    };
+  }
+
+  return {
+    title: `${profile.name} - ${profile.role}`,
+    description: profile.fullProfile
+      ? profile.fullProfile.substring(0, 160)
+      : profile.teaserServices,
+    openGraph: {
+      title: `${profile.name} | BevCon Network`,
+      description: profile.teaserServices,
+      url: `https://bevcon.com/network/${id}`,
+      type: "profile",
+      ...(profile.image && {
+        images: [
+          {
+            url: profile.image,
+            width: 400,
+            height: 400,
+            alt: profile.name,
+          },
+        ],
+      }),
+    },
+    alternates: {
+      canonical: `https://bevcon.com/network/${id}`,
+    },
+  };
 }
 
 export default async function ProfilePage({ params }: { params: Promise<{ id: string }> }) {
