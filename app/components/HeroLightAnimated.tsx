@@ -109,16 +109,43 @@ const StaticButton = ({ children, className, onClick }: { children: React.ReactN
 export default function HeroLightAnimated() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
+  const autoScrollRef = useRef(false);
   
   // Parallax for Background Video
   const yBg = useTransform(scrollY, [0, 1000], [0, 150]);
   // Parallax for Content (slower)
   const yContent = useTransform(scrollY, [0, 1000], [0, 50]);
 
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      if (autoScrollRef.current || !containerRef.current) {
+        return;
+      }
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const isHeroFullyVisible = rect.top >= -4 && rect.bottom >= window.innerHeight - 4;
+
+      if (event.deltaY > 0 && isHeroFullyVisible) {
+        const nextSection = document.getElementById("services");
+        if (nextSection) {
+          event.preventDefault();
+          autoScrollRef.current = true;
+          nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.setTimeout(() => {
+            autoScrollRef.current = false;
+          }, 900);
+        }
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
+
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden flex items-center justify-center py-8 sm:py-12 lg:py-20"
+      className="relative h-[100svh] min-h-screen w-full overflow-hidden flex items-center justify-center"
     >
       {/* 1. Textured Background Layer */}
       <div className="absolute inset-0 bg-[#F7F4F0] z-0">
@@ -175,7 +202,7 @@ export default function HeroLightAnimated() {
       </div>
 
       {/* 3. Main Content Content */}
-      <div className="container-width max-w-[95%] xl:max-w-[1600px] relative z-10 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center h-full px-4 sm:px-6">
+      <div className="container-width max-w-[95%] xl:max-w-[1600px] relative z-10 grid h-full lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
 
         {/* Left Column: Text & CTA */}
         <motion.div style={{ y: yContent }} className="space-y-6 sm:space-y-8 lg:space-y-10 max-w-2xl lg:max-w-[90%] xl:max-w-2xl lg:pr-8 xl:pr-12">
