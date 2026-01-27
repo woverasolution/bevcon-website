@@ -119,6 +119,25 @@ On brewery-related projects, Bereket contributes to the coordination of industri
 Within BevCon, Bereket supports Beverage Construction and Beverage Concept assignments where architectural leadership and site coordination are needed to translate industrial layouts into practical, well-executed facilities. He also contributes to consulting assignments requiring reliable documentation, interface coordination, and strong construction-stage communication.`,
   },
   {
+    id: 'carlos-weinberger',
+    name: 'Carlos Weinberger',
+    role: 'Senior Brewmaster & Plant Manager',
+    level: 'B',
+    image: '/portraits/WeinbergerCarlos_light.png',
+    imagePosition: 'center 20%',
+    teaserServices: 'Large-scale brewery operations',
+    services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
+    fullProfile: `Carlos Weinberger is a senior brewmaster and plant manager with more than 35 years of international experience in industrial brewing and large-scale brewery leadership. He has held senior technical and operational management roles in high-capacity breweries across Latin America, Europe, Africa, Central Asia, and the Middle East, including sites with annual outputs exceeding 8 million hectolitres.
+
+His professional scope covers full end-to-end brewery operations, including brewing, fermentation, filtration, packaging interfaces, utilities coordination, quality systems, maintenance alignment, and organisational leadership. Carlos is frequently engaged in situations where operational stability and performance recovery are critical—such as post-commissioning ramp-up phases, rapid capacity expansion, operational restructuring, or persistent quality and efficiency challenges.
+
+A core strength of Carlos’ work lies in diagnosing complex operational issues and translating them into practical, executable improvement programmes. His experience includes brewhouse efficiency optimisation, fermentation and maturation stabilisation, loss reduction, packaging performance improvement, and the establishment of robust operational routines and KPI systems. He is particularly effective at embedding improvements into daily operations so that results remain sustainable beyond short-term interventions.
+
+Carlos has led large, multicultural teams in demanding industrial environments, often under tight production, quality, and cost constraints. His leadership style combines strong brewing fundamentals with pragmatic management, focusing on clarity, accountability, and disciplined execution on the shop floor.
+
+Within BevCon, Carlos supports operational audits, ramp-up and stabilisation assignments, performance recovery programmes, and interim senior operations leadership. He provides hands-on, experience-driven support to management and production teams, helping large and complex breweries achieve stable quality, reliable output, and sustained performance.`,
+  },
+  {
     id: 'christian-mueller',
     name: 'Christian Mueller',
     role: 'Senior Brewmaster',
@@ -147,6 +166,24 @@ Within BevCon, Christian supports Beverage Confidence and Beverage Consulting as
     fullProfile: `Evert Boersma is an international commercial and marketing leader with extensive experience building and improving route-to-market, trade marketing, and sales execution across Africa, the Middle East, Europe, and the Caribbean. He supports beverage companies as an interim manager and consultant, strengthening commercial organisations through sales force assessments, capability building, coaching, and practical in-store execution programs.
 
 Evert previously served as Commercial Director at a leading brewery in Rwanda, delivering strong volume growth and implementing distributor planning, reporting structures, and direct store delivery initiatives. He also held regional roles with Heineken focused on sales execution and trade marketing development across multiple OpCos, including building sales academies and training hundreds of commercial staff.`,
+  },
+  {
+    id: 'hardeep-singh-bajwa',
+    name: 'Hardeep Singh Bajwa',
+    role: 'Brewmaster & Plant Manager',
+    level: 'B',
+    // No light image available, reverting to industrial as preferred alternative
+    image: '/portraits/SingHardeep_industrial.png',
+    imagePosition: 'center 25%',
+    teaserServices: 'Industrial brewery leadership',
+    services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
+    fullProfile: `Hardeep Singh Bajwa is a senior brewmaster and plant leader with more than 25 years of international experience in industrial brewery operations across Africa and Asia. He has held senior roles including Plant Head, Brewery Manager / Site Director, Site Technical Manager, and senior brewing leadership positions within global and regional brewing groups. Across these assignments, he has combined strong operational discipline with people leadership, delivering stable performance in complex, high-volume environments.
+
+Hardeep's scope typically spans full end-to-end operations: brewing, packaging, utilities, quality, safety, maintenance coordination, and performance management. He is particularly effective during ramp-up, stabilisation, and step-change improvement phases—when new equipment, changing product mixes, or organisational transitions require clear routines, tight process control, and confident leadership on the shop floor. He is known for building capable teams, aligning departments around KPIs, and driving continuous improvement without compromising safety or quality standards.
+
+His background includes long-term senior roles with SABMiller and AB InBev, followed by site leadership positions in Ethiopia where he managed major brewery operations and technical functions. Most recently, he serves as Plant Head in Angola, overseeing full plant operations and ensuring stable output, compliance, and team development.
+
+Within BevCon, Hardeep supports owners and operating teams with operational leadership, performance recovery, ramp-up support, and site management capability building—bringing hands-on experience that translates quickly into practical results.`,
   },
   {
     id: 'hubert-de-halleux',
@@ -236,25 +273,6 @@ On site, Yishak works closely with construction teams to resolve issues quickly,
 Within BevCon, Yishak supports Beverage Construction and Beverage Connect assignments by strengthening resident engineering presence, contractor coordination, and schedule control. He helps reduce execution risk and improves predictability of delivery in multi-contractor environments, particularly during intensive construction and installation phases.`,
   },
   {
-    id: 'carlos-weinberger',
-    name: 'Carlos Weinberger',
-    role: 'Senior Brewmaster & Plant Manager',
-    level: 'B',
-    image: '/portraits/WeinbergerCarlos_light.png',
-    imagePosition: 'center 20%',
-    teaserServices: 'Large-scale brewery operations',
-    services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
-    fullProfile: `Carlos Weinberger is a senior brewmaster and plant manager with more than 35 years of international experience in industrial brewing and large-scale brewery leadership. He has held senior technical and operational management roles in high-capacity breweries across Latin America, Europe, Africa, Central Asia, and the Middle East, including sites with annual outputs exceeding 8 million hectolitres.
-
-His professional scope covers full end-to-end brewery operations, including brewing, fermentation, filtration, packaging interfaces, utilities coordination, quality systems, maintenance alignment, and organisational leadership. Carlos is frequently engaged in situations where operational stability and performance recovery are critical—such as post-commissioning ramp-up phases, rapid capacity expansion, operational restructuring, or persistent quality and efficiency challenges.
-
-A core strength of Carlos’ work lies in diagnosing complex operational issues and translating them into practical, executable improvement programmes. His experience includes brewhouse efficiency optimisation, fermentation and maturation stabilisation, loss reduction, packaging performance improvement, and the establishment of robust operational routines and KPI systems. He is particularly effective at embedding improvements into daily operations so that results remain sustainable beyond short-term interventions.
-
-Carlos has led large, multicultural teams in demanding industrial environments, often under tight production, quality, and cost constraints. His leadership style combines strong brewing fundamentals with pragmatic management, focusing on clarity, accountability, and disciplined execution on the shop floor.
-
-Within BevCon, Carlos supports operational audits, ramp-up and stabilisation assignments, performance recovery programmes, and interim senior operations leadership. He provides hands-on, experience-driven support to management and production teams, helping large and complex breweries achieve stable quality, reliable output, and sustained performance.`,
-  },
-  {
     id: 'etienne-thabiso-rouge',
     name: 'Etienne Thabiso Rouge',
     role: 'CEO / General Manager',
@@ -269,24 +287,6 @@ Within BevCon, Carlos supports operational audits, ramp-up and stabilisation ass
 Most recently, he was appointed CEO of a large greenfield brewery investment to support the recovery and accelerated turnaround of the project. His work has focused on funding mobilisation, commissioning and production readiness, cost and cash control, leadership restructuring, and compliance-driven governance, while preparing the business for full-scale market expansion.
 
 His background includes senior leadership roles in foods (MEA), strategic consulting and partnership development, and commercial leadership with global FMCG groups. He brings strong capability in distribution network development, brand market entry, B2B relationship management, and financial management.`,
-  },
-  {
-    id: 'hardeep-singh-bajwa',
-    name: 'Hardeep Singh Bajwa',
-    role: 'Brewmaster & Plant Manager',
-    level: 'B',
-    // No light image available, reverting to industrial as preferred alternative
-    image: '/portraits/SingHardeep_industrial.png',
-    imagePosition: 'center 25%',
-    teaserServices: 'Industrial brewery leadership',
-    services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
-    fullProfile: `Hardeep Singh Bajwa is a senior brewmaster and plant leader with more than 25 years of international experience in industrial brewery operations across Africa and Asia. He has held senior roles including Plant Head, Brewery Manager / Site Director, Site Technical Manager, and senior brewing leadership positions within global and regional brewing groups. Across these assignments, he has combined strong operational discipline with people leadership, delivering stable performance in complex, high-volume environments.
-
-Hardeep's scope typically spans full end-to-end operations: brewing, packaging, utilities, quality, safety, maintenance coordination, and performance management. He is particularly effective during ramp-up, stabilisation, and step-change improvement phases—when new equipment, changing product mixes, or organisational transitions require clear routines, tight process control, and confident leadership on the shop floor. He is known for building capable teams, aligning departments around KPIs, and driving continuous improvement without compromising safety or quality standards.
-
-His background includes long-term senior roles with SABMiller and AB InBev, followed by site leadership positions in Ethiopia where he managed major brewery operations and technical functions. Most recently, he serves as Plant Head in Angola, overseeing full plant operations and ensuring stable output, compliance, and team development.
-
-Within BevCon, Hardeep supports owners and operating teams with operational leadership, performance recovery, ramp-up support, and site management capability building—bringing hands-on experience that translates quickly into practical results.`,
   },
   {
     id: 'floris-delee',
@@ -309,6 +309,40 @@ Within the BevCon Network, this expert supports craft and specialty brewery proj
 
 // C-LEVEL – EXECUTION / SITE ROLES
 const cLevelProfiles: NetworkProfile[] = [
+  {
+    id: 'josef-puc',
+    name: 'Josef Puc',
+    role: 'Mechanical Supervisor',
+    level: 'C',
+    image: '/portraits/PucJosef_light.png',
+    imagePosition: 'center 20%',
+    teaserServices: 'Piping systems · Tank installation · Mechanical assembly',
+    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
+    fullProfile: `Josef Puc is a senior mechanical supervisor with more than 35 years of international experience in brewery construction, mechanical installation, and piping systems. Trained as an industrial mechanic, he has worked extensively on greenfield and brownfield brewery projects across Europe, Africa, Asia, and North America, supporting installation, supervision, and commissioning activities.
+
+Josef specialises in stainless-steel piping, tank installation, CIP systems, steel construction, and mechanical assembly within brewhouse, fermentation, utilities, and packaging interface areas. He has led and coordinated mechanical installation teams on complex sites, ensuring correct execution in accordance with drawings, specifications, hygiene requirements, and safety standards.
+
+He is particularly valued during critical installation and commissioning phases, where precise workmanship, interface coordination, and rapid problem-solving are essential to maintain schedule and quality. Josef works closely with process suppliers, civil contractors, and site management to resolve clashes, implement practical adjustments, and prepare systems for smooth commissioning and handover.
+
+Within BevCon projects, Josef provides reliable mechanical supervision that reduces rework, improves installation quality, and supports efficient transition from construction to commissioning. His calm site presence and hands-on expertise make him a trusted execution partner on demanding industrial projects.`,
+  },
+  {
+    id: 'omar-bernal',
+    name: 'Omar Bernal',
+    role: 'Electrical Supervisor',
+    level: 'C',
+    image: '/portraits/BernalOmar_grey.png',
+    imagePosition: 'center 20%',
+    teaserServices: 'Industrial installations',
+    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
+    fullProfile: `Omar Bernal is an electrical supervisor with more than 10 years of international experience in electrical installation and commissioning for large-scale brewery and industrial projects. He has supervised sizeable on-site teams in complex environments, ensuring safe execution, quality workmanship, and adherence to project schedules.
+
+Omar's expertise covers electrical installation of power distribution systems, process and packaging equipment, control cabinets, structured cabling, and commissioning support. He is experienced in coordinating electrical works with mechanical, automation, and civil activities, ensuring that interfaces are resolved efficiently and without delay to overall progress.
+
+He has worked on projects across Africa, Latin America, and the United States, often within multinational project teams and under demanding site conditions. Omar is valued for his structured approach to site coordination, clear communication with contractors and suppliers, and strong focus on safety compliance and documentation.
+
+Within BevCon projects, Omar supports installation and commissioning phases by providing reliable electrical supervision, reducing execution risk, and supporting smooth start-up and handover to operations.`,
+  },
   {
     id: 'patrick-laval',
     name: 'Patrick Laval',
@@ -359,40 +393,6 @@ In operational leadership roles, Sanjay has been accountable for maintenance bud
 He is also experienced with SAP-based maintenance systems and structured reporting, enabling transparent cost control and decision support for management teams. His training background includes PLC and automation exposure, leadership programs, and multiple HSE and quality frameworks.
 
 Within BevCon, Sanjay supports Beverage Construction, Beverage Confidence, and Beverage Control assignments—particularly where strong utilities integration, asset care systems, and practical project delivery under international standards are required.`,
-  },
-  {
-    id: 'josef-puc',
-    name: 'Josef Puc',
-    role: 'Mechanical Supervisor',
-    level: 'C',
-    image: '/portraits/PucJosef_light.png',
-    imagePosition: 'center 20%',
-    teaserServices: 'Piping systems · Tank installation · Mechanical assembly',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Josef Puc is a senior mechanical supervisor with more than 35 years of international experience in brewery construction, mechanical installation, and piping systems. Trained as an industrial mechanic, he has worked extensively on greenfield and brownfield brewery projects across Europe, Africa, Asia, and North America, supporting installation, supervision, and commissioning activities.
-
-Josef specialises in stainless-steel piping, tank installation, CIP systems, steel construction, and mechanical assembly within brewhouse, fermentation, utilities, and packaging interface areas. He has led and coordinated mechanical installation teams on complex sites, ensuring correct execution in accordance with drawings, specifications, hygiene requirements, and safety standards.
-
-He is particularly valued during critical installation and commissioning phases, where precise workmanship, interface coordination, and rapid problem-solving are essential to maintain schedule and quality. Josef works closely with process suppliers, civil contractors, and site management to resolve clashes, implement practical adjustments, and prepare systems for smooth commissioning and handover.
-
-Within BevCon projects, Josef provides reliable mechanical supervision that reduces rework, improves installation quality, and supports efficient transition from construction to commissioning. His calm site presence and hands-on expertise make him a trusted execution partner on demanding industrial projects.`,
-  },
-  {
-    id: 'omar-bernal',
-    name: 'Omar Bernal',
-    role: 'Electrical Supervisor',
-    level: 'C',
-    image: '/portraits/BernalOmar_grey.png',
-    imagePosition: 'center 20%',
-    teaserServices: 'Industrial installations',
-    services: ['Beverage Construction', 'Beverage Confidence', 'Beverage Connect'],
-    fullProfile: `Omar Bernal is an electrical supervisor with more than 10 years of international experience in electrical installation and commissioning for large-scale brewery and industrial projects. He has supervised sizeable on-site teams in complex environments, ensuring safe execution, quality workmanship, and adherence to project schedules.
-
-Omar's expertise covers electrical installation of power distribution systems, process and packaging equipment, control cabinets, structured cabling, and commissioning support. He is experienced in coordinating electrical works with mechanical, automation, and civil activities, ensuring that interfaces are resolved efficiently and without delay to overall progress.
-
-He has worked on projects across Africa, Latin America, and the United States, often within multinational project teams and under demanding site conditions. Omar is valued for his structured approach to site coordination, clear communication with contractors and suppliers, and strong focus on safety compliance and documentation.
-
-Within BevCon projects, Omar supports installation and commissioning phases by providing reliable electrical supervision, reducing execution risk, and supporting smooth start-up and handover to operations.`,
   },
   {
     id: 'victor-makhoul',
