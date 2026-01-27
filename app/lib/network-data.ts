@@ -12,6 +12,7 @@ export interface NetworkProfile {
   imagePosition?: string; // CSS object-position value, e.g., 'center 20%' to position face in circular crop
   isAnonymous?: boolean; // If true, name and company details are hidden on the network page
   anonymousLabel?: string; // Placeholder name for anonymous profiles, e.g. "Senior Technical Director"
+  clickable?: boolean; // If false, the profile card does not link to a detail page. Defaults to true.
 }
 
 // Helper function to create slug from name
@@ -52,6 +53,7 @@ Johannes is a recognised FIDIC contract specialist with extensive experience in 
     level: 'A',
     isAnonymous: true,
     anonymousLabel: 'Senior Technical Director',
+    clickable: false,
     // image removed for anonymity
     teaserServices: 'Engineering · Operations · Project Execution',
     services: ['Beverage Concept', 'Beverage Construction', 'Beverage Confidence', 'Beverage Control', 'Beverage Consulting', 'Beverage Connect'],

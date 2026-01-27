@@ -11,6 +11,46 @@ function ProfileCard({ profile, index }: { profile: NetworkProfile; index: numbe
   const hasImage = !!profile.image;
   const isAnonymous = profile.isAnonymous;
   const displayName = isAnonymous ? (profile.anonymousLabel || 'Network Expert') : profile.name;
+  
+  // Defaults to true unless explicitly set to false
+  const isClickable = profile.clickable !== false;
+
+  const CardContent = (
+    <>
+      {/* Circular Portrait */}
+      <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mb-4 sm:mb-5">
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#ffbb3a]/20 to-[#455660]/20 transform group-hover:scale-105 transition-transform duration-300" />
+        <div className="absolute inset-1 rounded-full overflow-hidden bg-slate-100 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+          {hasImage ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img 
+              src={profile.image}
+              alt={displayName} 
+              className="w-full h-full object-cover"
+              style={{ objectPosition: profile.imagePosition || 'center 20%' }}
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+              <User className="w-16 h-16 sm:w-20 sm:h-20 text-slate-500" />
+            </div>
+          )}
+        </div>
+        {/* Accent ring on hover */}
+        <div className={`absolute inset-0 rounded-full border-2 border-transparent ${isClickable ? 'group-hover:border-[#ffbb3a]/50' : ''} transition-colors duration-300`} />
+      </div>
+      
+      {/* Name & Role */}
+      <h3 className={`text-lg sm:text-xl font-bold text-slate-900 ${isClickable ? 'group-hover:text-[#455660]' : ''} transition-colors leading-tight`}>
+        {displayName}
+      </h3>
+      <p className="text-sm sm:text-base font-medium text-slate-600 mt-1">
+        {profile.role}
+      </p>
+      <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed max-w-[280px] mx-auto">
+        {profile.teaserServices}
+      </p>
+    </>
+  );
 
   return (
     <motion.div
@@ -19,43 +59,18 @@ function ProfileCard({ profile, index }: { profile: NetworkProfile; index: numbe
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.2) }}
     >
-      <Link 
-        href={`/network/${profile.id}`}
-        className="group block text-center"
-      >
-        {/* Circular Portrait */}
-        <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mb-4 sm:mb-5">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#ffbb3a]/20 to-[#455660]/20 transform group-hover:scale-105 transition-transform duration-300" />
-          <div className="absolute inset-1 rounded-full overflow-hidden bg-slate-100 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-            {hasImage ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img 
-                src={profile.image}
-                alt={displayName} 
-                className="w-full h-full object-cover"
-                style={{ objectPosition: profile.imagePosition || 'center 20%' }}
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
-                <User className="w-16 h-16 sm:w-20 sm:h-20 text-slate-500" />
-              </div>
-            )}
-          </div>
-          {/* Accent ring on hover */}
-          <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[#ffbb3a]/50 transition-colors duration-300" />
+      {isClickable ? (
+        <Link 
+          href={`/network/${profile.id}`}
+          className="group block text-center"
+        >
+          {CardContent}
+        </Link>
+      ) : (
+        <div className="group block text-center cursor-default">
+          {CardContent}
         </div>
-        
-        {/* Name & Role */}
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#455660] transition-colors leading-tight">
-          {displayName}
-        </h3>
-        <p className="text-sm sm:text-base font-medium text-slate-600 mt-1">
-          {profile.role}
-        </p>
-        <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed max-w-[280px] mx-auto">
-          {profile.teaserServices}
-        </p>
-      </Link>
+      )}
     </motion.div>
   );
 }
