@@ -22,8 +22,8 @@ export default function Home() {
         <BeverageConstruction />
         <BeverageContracts />
         <BeverageConfidence />
-        <BeverageConsulting />
         <BeverageControl />
+        <BeverageConsulting />
         <BeverageConnect />
         <CTASection />
       </main>

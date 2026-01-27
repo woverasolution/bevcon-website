@@ -71,7 +71,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 sm:mt-14 md:mt-16 pt-6 sm:pt-8 border-t border-slate-800 text-center text-[10px] sm:text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} BevCon. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} BevCon. All rights reserved.
+            <span className="mx-2">|</span>
+            <Link href="/imprint" className="hover:text-slate-300 transition-colors">Imprint</Link>
+          </p>
         </div>
       </div>
     </footer>

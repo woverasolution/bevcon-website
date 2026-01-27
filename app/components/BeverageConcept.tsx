@@ -125,7 +125,7 @@ export default function BeverageConcept() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-stone-600 font-light max-w-2xl"
               >
-                Turning ideas into <span className="text-stone-900 font-medium">robust, bankable concepts</span> by combining market insight, financial modelling, and practical engineering.
+                Turning ideas into <span className="text-stone-900 font-medium">robust, bankable feasibility studies</span> through market insight, financial modelling, and practical engineering.
               </motion.p>
             </div>
 
