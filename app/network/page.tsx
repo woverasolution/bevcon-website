@@ -217,9 +217,9 @@ export default function NetworkPage() {
                 className="flex flex-wrap gap-6 sm:gap-8 md:gap-10"
               >
                 {[
-                  { value: '100+', label: 'Years Combined Experience' },
+                  { value: '500+', label: 'Years Combined Experience' },
                   { value: '25+', label: 'Countries Served' },
-                  { value: '15+', label: 'Active Specialists' },
+                  { value: '20+', label: 'Active Specialists' },
                 ].map((stat, i) => (
                   <div key={i}>
                     <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-0.5">{stat.value}</div>
