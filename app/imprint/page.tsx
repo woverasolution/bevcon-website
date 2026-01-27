@@ -43,8 +43,8 @@ export default function ImprintPage() {
             </section>
 
             {/* Responsible for Content */}
-            <section className="space-y-4 text-slate-700">
-              <h2 className="heading-lg text-2xl md:text-3xl">Responsible for content</h2>
+            <section className="space-y-2 text-slate-700">
+              <h2 className="text-xl font-bold text-slate-900">Responsible for content</h2>
               <p>Johannes Bier</p>
             </section>
 

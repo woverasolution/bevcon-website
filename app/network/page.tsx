@@ -4,239 +4,64 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getProfilesByLevel, type ProfileLevel, type NetworkProfile } from "../lib/network-data";
 import Link from "next/link";
-import { FlippingCard } from "../components/ui/flipping-card";
 import { motion } from "framer-motion";
+import { User } from "lucide-react";
 
-// Generate a deterministic hash from a string
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
-  }
-  return Math.abs(hash);
-}
-
-// Generate unique visual parameters from name
-function getVisualParams(name: string) {
-  const hash = hashString(name);
-  
-  const palettes = [
-    { bg: 'from-slate-800 via-slate-700 to-slate-900', accent: '#c9a227', secondary: '#8b7355' },
-    { bg: 'from-stone-800 via-stone-700 to-stone-900', accent: '#d4af37', secondary: '#9c8f5e' },
-    { bg: 'from-zinc-800 via-zinc-700 to-zinc-900', accent: '#b8860b', secondary: '#7d6608' },
-    { bg: 'from-neutral-800 via-neutral-700 to-neutral-900', accent: '#daa520', secondary: '#a67c00' },
-    { bg: 'from-gray-800 via-gray-700 to-gray-900', accent: '#cfb53b', secondary: '#8b8000' },
-  ];
-  
-  const palette = palettes[hash % palettes.length];
-  const rotation = (hash % 360);
-  const patternType = hash % 4;
-  const shapeCount = 3 + (hash % 4);
-  
-  return { palette, rotation, patternType, shapeCount, hash };
-}
-
-function ProfileImagePlaceholder({ name }: { name: string }) {
-  const { palette, rotation, patternType, shapeCount, hash } = getVisualParams(name);
-  
-  const shapes = Array.from({ length: shapeCount }, (_, i) => {
-    const seed = hash + i * 1000;
-    return {
-      x: 10 + (seed % 80),
-      y: 10 + ((seed * 7) % 80),
-      size: 20 + (seed % 40),
-      rotation: (seed * 13) % 360,
-      opacity: 0.1 + (((seed * 3) % 15) / 100),
-    };
-  });
-
-  return (
-    <div className={`w-full h-full bg-gradient-to-br ${palette.bg} relative overflow-hidden`}>
-      <svg 
-        className="absolute inset-0 w-full h-full opacity-20"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <pattern 
-            id={`grid-${hash}`} 
-            width="10" 
-            height="10" 
-            patternUnits="userSpaceOnUse"
-            patternTransform={`rotate(${rotation % 45})`}
-          >
-            {patternType === 0 && (
-              <>
-                <line x1="0" y1="5" x2="10" y2="5" stroke={palette.accent} strokeWidth="0.3" />
-                <line x1="5" y1="0" x2="5" y2="10" stroke={palette.accent} strokeWidth="0.3" />
-              </>
-            )}
-            {patternType === 1 && (
-              <circle cx="5" cy="5" r="1" fill={palette.accent} />
-            )}
-            {patternType === 2 && (
-              <polygon points="5,0 10,10 0,10" fill="none" stroke={palette.accent} strokeWidth="0.3" />
-            )}
-            {patternType === 3 && (
-              <rect x="2" y="2" width="6" height="6" fill="none" stroke={palette.accent} strokeWidth="0.3" transform="rotate(45 5 5)" />
-            )}
-          </pattern>
-        </defs>
-        <rect width="100" height="100" fill={`url(#grid-${hash})`} />
-      </svg>
-
-      <svg 
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        {shapes.map((shape, i) => (
-          <g key={i} transform={`translate(${shape.x}, ${shape.y}) rotate(${shape.rotation})`}>
-            {i % 3 === 0 && (
-              <circle 
-                r={shape.size / 4} 
-                fill="none" 
-                stroke={palette.accent} 
-                strokeWidth="0.5"
-                opacity={shape.opacity}
-              />
-            )}
-            {i % 3 === 1 && (
-              <rect 
-                x={-shape.size / 4} 
-                y={-shape.size / 4} 
-                width={shape.size / 2} 
-                height={shape.size / 2} 
-                fill="none" 
-                stroke={palette.accent} 
-                strokeWidth="0.5"
-                opacity={shape.opacity}
-              />
-            )}
-            {i % 3 === 2 && (
-              <polygon 
-                points={`0,${-shape.size / 4} ${shape.size / 4},${shape.size / 4} ${-shape.size / 4},${shape.size / 4}`}
-                fill="none" 
-                stroke={palette.accent} 
-                strokeWidth="0.5"
-                opacity={shape.opacity}
-              />
-            )}
-          </g>
-        ))}
-      </svg>
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
-          <div 
-            className="absolute -inset-4 rounded-full border opacity-30"
-            style={{ borderColor: palette.accent }}
-          />
-          <div 
-            className="absolute -inset-8 rounded-full border opacity-15"
-            style={{ borderColor: palette.accent }}
-          />
-          
-          <div 
-            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center relative overflow-hidden"
-            style={{ 
-              background: `linear-gradient(135deg, ${palette.accent}15, ${palette.secondary}25)`,
-              boxShadow: `0 0 40px ${palette.accent}20`
-            }}
-          >
-            <svg 
-              className="w-12 h-12 sm:w-14 sm:h-14"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <circle cx="12" cy="8" r="4" fill={palette.accent} opacity="0.6" />
-              <path 
-                d="M4 20c0-4 4-6 8-6s8 2 8 6" 
-                stroke={palette.accent} 
-                strokeWidth="1.5" 
-                strokeLinecap="round"
-                opacity="0.6"
-              />
-              <circle cx="12" cy="8" r="3" fill="none" stroke={palette.accent} strokeWidth="0.5" opacity="0.8" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div 
-        className="absolute bottom-0 right-0 w-16 h-16 sm:w-20 sm:h-20 opacity-20"
-        style={{
-          background: `linear-gradient(135deg, transparent 50%, ${palette.accent} 50%)`,
-        }}
-      />
-      
-      <div 
-        className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-6 h-px opacity-30"
-        style={{ background: `linear-gradient(90deg, transparent, ${palette.accent}, transparent)` }}
-      />
-    </div>
-  );
-}
-
-function NetworkProfileCard({ profile, index }: { profile: NetworkProfile; index: number }) {
+function ProfileCard({ profile, index }: { profile: NetworkProfile; index: number }) {
   const hasImage = !!profile.image;
+  const isAnonymous = profile.isAnonymous;
+  const displayName = isAnonymous ? (profile.anonymousLabel || 'Network Expert') : profile.name;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.08, 0.24) }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.2) }}
     >
-    <FlippingCard
-        className="w-full h-[340px] sm:h-[380px] md:h-[400px]"
+      <Link 
         href={`/network/${profile.id}`}
-      frontContent={
-        <div className="flex flex-col h-full w-full">
-          <div className="h-3/5 w-full relative overflow-hidden rounded-t-lg">
-              {hasImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
-            <img 
-                  src={profile.image}
-              alt={profile.name} 
-              className="w-full h-full object-cover object-center" 
-            />
-              ) : (
-                <ProfileImagePlaceholder name={profile.name} />
-              )}
+        className="group block text-center"
+      >
+        {/* Circular Portrait */}
+        <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mb-4 sm:mb-5">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#ffbb3a]/20 to-[#455660]/20 transform group-hover:scale-105 transition-transform duration-300" />
+          <div className="absolute inset-1 rounded-full overflow-hidden bg-slate-100 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+            {hasImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img 
+                src={profile.image}
+                alt={displayName} 
+                className="w-full h-full object-cover"
+                style={{ objectPosition: profile.imagePosition || 'center 20%' }}
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <User className="w-16 h-16 sm:w-20 sm:h-20 text-slate-500" />
+              </div>
+            )}
           </div>
-            <div className="p-3 sm:p-4 flex flex-col justify-center flex-grow bg-slate-50 rounded-b-lg">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{profile.name}</h3>
-              <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">{profile.role}</p>
-          </div>
+          {/* Accent ring on hover */}
+          <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[#ffbb3a]/50 transition-colors duration-300" />
         </div>
-      }
-      backContent={
-          <div className="flex flex-col h-full w-full p-4 sm:p-6 items-center justify-center text-center bg-slate-50 rounded-lg">
-            <p className="text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 text-slate-700">
-            {profile.teaserServices}
-          </p>
-          <Link
-            href={`/network/${profile.id}`}
-              className="inline-flex items-center justify-center px-5 sm:px-6 py-2 bg-slate-900 text-white text-xs sm:text-sm font-medium rounded-md hover:bg-slate-800 transition-colors"
-          >
-            Learn More
-          </Link>
-        </div>
-      }
-    />
+        
+        {/* Name & Role */}
+        <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#455660] transition-colors leading-tight">
+          {displayName}
+        </h3>
+        <p className="text-sm sm:text-base font-medium text-slate-600 mt-1">
+          {profile.role}
+        </p>
+        <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed max-w-[280px] mx-auto">
+          {profile.teaserServices}
+        </p>
+      </Link>
     </motion.div>
   );
 }
 
 // Profiles temporarily hidden from display (data preserved for future use)
-const HIDDEN_PROFILE_IDS = [
-  'piet-sierens',
-  'etienne-thabiso-rouge',
-  'carlos-weinberger',
-];
+const HIDDEN_PROFILE_IDS: string[] = [];
 
 const levelConfig = {
   A: {
@@ -264,28 +89,28 @@ function LevelSection({ level }: { level: ProfileLevel }) {
   if (profiles.length === 0) return null;
 
   return (
-    <section className="py-10 sm:py-14 md:py-16">
+    <section className="py-12 sm:py-16 md:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-8 sm:mb-10"
+        className="mb-10 sm:mb-12 text-center"
       >
-        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-[#ffbb3a] block mb-2">
+        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#ffbb3a] block mb-3">
           {config.label}
         </span>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 leading-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
           {config.title}
         </h2>
-        <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed">
+        <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           {config.description}
         </p>
       </motion.div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
         {profiles.map((profile, index) => (
-          <NetworkProfileCard key={profile.id} profile={profile} index={index} />
+          <ProfileCard key={profile.id} profile={profile} index={index} />
         ))}
       </div>
     </section>

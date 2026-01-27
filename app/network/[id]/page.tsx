@@ -22,13 +22,15 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     };
   }
 
+  const displayName = profile.isAnonymous ? (profile.anonymousLabel || 'Network Expert') : profile.name;
+
   return {
-    title: `${profile.name} - ${profile.role}`,
+    title: `${displayName} - ${profile.role}`,
     description: profile.fullProfile
       ? profile.fullProfile.substring(0, 160)
       : profile.teaserServices,
     openGraph: {
-      title: `${profile.name} | BevCon Network`,
+      title: `${displayName} | BevCon Network`,
       description: profile.teaserServices,
       url: `https://bevcon.com/network/${id}`,
       type: "profile",
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
             url: profile.image,
             width: 400,
             height: 400,
-            alt: profile.name,
+            alt: displayName,
           },
         ],
       }),
@@ -57,6 +59,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
     notFound();
   }
 
+  const displayName = profile.isAnonymous ? (profile.anonymousLabel || 'Network Expert') : profile.name;
   const servicesLine = `BevCon services: ${profile.services.join(' · ')}`;
 
   return (
@@ -79,7 +82,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
                   Profile
                 </p>
                 <h1 className="text-4xl font-semibold text-stone-900 md:text-5xl mb-4">
-                  {profile.name}
+                  {displayName}
                 </h1>
                 <p className="text-xl font-semibold text-stone-700">
                   {profile.role}
