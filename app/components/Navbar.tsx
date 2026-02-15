@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,8 @@ import { cn } from "@/app/lib/utils";
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollYRef = useRef(0);
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -21,6 +23,22 @@ export default function Navbar() {
   // Handle scroll state logic
   useMotionValueEvent(scrollY, "change", (latest) => {
     setHasScrolled(latest > 50);
+
+    const delta = latest - lastScrollYRef.current;
+
+    if (mobileMenuOpen || latest <= 40) {
+      setNavHidden(false);
+      lastScrollYRef.current = latest;
+      return;
+    }
+
+    if (delta > 6) {
+      setNavHidden(true);
+    } else if (delta < -6) {
+      setNavHidden(false);
+    }
+
+    lastScrollYRef.current = latest;
   });
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -29,12 +47,13 @@ export default function Navbar() {
       const id = href.replace("/#", "");
       const element = document.getElementById(id);
       if (element) {
-        const offset = 80; // Navbar height
+        const isDesktop = window.innerWidth >= 768;
+        const offset = isDesktop ? 96 : 80;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         window.scrollTo({
           top: offsetPosition,
-          behavior: "auto"
+          behavior: "smooth"
         });
       }
     }
@@ -52,25 +71,32 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={isHome ? { y: -100 } : false}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        animate={{ y: navHidden ? -120 : 0, opacity: navHidden ? 0.96 : 1 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-white py-3 border-b border-slate-200/50"
-            : "bg-transparent py-6"
+            ? "bg-white/95 border-b border-slate-200/70 backdrop-blur-sm md:bg-transparent md:border-b-0 md:backdrop-blur-none py-0"
+            : "bg-transparent py-0"
         )}
       >
-        {/* Top Accent Line - only show on home page when scrolled */}
-        {isHome && (
-          <div className={cn(
-            "absolute top-0 left-0 right-0 h-[3px] bg-accent transition-transform duration-500 origin-left",
-            scrolled ? "scale-x-100" : "scale-x-0"
-          )} />
-        )}
+        <div className="relative">
+          {/* Desktop full-width container appears on scroll */}
+          <motion.div
+            aria-hidden
+            initial={false}
+            animate={{
+              opacity: scrolled ? 1 : 0,
+              y: scrolled ? 0 : -12,
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute inset-x-0 top-0 hidden md:block"
+          >
+            <div className="h-[84px] border-b border-slate-200/80 bg-white/88 backdrop-blur-xl shadow-[0_10px_30px_-22px_rgba(15,23,42,0.45)]" />
+          </motion.div>
 
-        <div className="max-w-[95%] xl:max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6">
-          <div className="flex items-center justify-between">
+          <div className="max-w-[95%] xl:max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6">
+            <div className="relative flex items-center justify-between min-h-[64px]">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -92,44 +118,53 @@ export default function Navbar() {
                 </div>
                 <span className={cn(
                   "text-[8px] sm:text-[9px] font-bold tracking-[0.25em] transition-all duration-300 ml-1 uppercase hidden xs:block sm:block",
-                  scrolled ? "text-slate-500 opacity-80" : "text-slate-600"
+                  "text-slate-500"
                 )}>
                   Built for Reality
                 </span>
               </Link>
             </motion.div>
 
-            <motion.div
-              className="hidden items-center gap-6 md:flex"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <nav className="flex items-center gap-6">
-                {navLinks.map((link, index) => (
-                  <div key={link.name} className="flex items-center">
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleLinkClick(e, link.href)}
-                      className={cn(
-                        "relative text-[13px] font-bold uppercase tracking-wider transition-colors py-2 group",
-                        scrolled ? "text-slate-600 hover:text-primary" : "text-slate-700 hover:text-primary"
-                      )}
-                    >
-                      {link.name}
-                      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                    </Link>
-                    {/* Vertical Divider - only between items, not after last */}
-                    {index < navLinks.length - 1 && (
-                      <div className={cn(
-                        "h-4 w-[1px] mx-6 transition-colors duration-300",
-                        scrolled ? "bg-slate-300" : "bg-slate-400/50"
-                      )} />
-                    )}
-                  </div>
-                ))}
-              </nav>
-            </motion.div>
+              <motion.div
+                className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: scrolled ? 0.985 : 1,
+                }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <div
+                  className={cn(
+                    "rounded-full border px-7 lg:px-9 py-2.5 backdrop-blur-md transition-all duration-500",
+                    scrolled
+                      ? "border-slate-200/95 bg-white/96 shadow-[0_14px_30px_-18px_rgba(15,23,42,0.28)]"
+                      : "border-white/70 bg-white/86 shadow-[0_12px_26px_-20px_rgba(15,23,42,0.35)]"
+                  )}
+                >
+                  <nav className="flex items-center gap-5 lg:gap-6">
+                    {navLinks.map((link, index) => (
+                      <div key={link.name} className="flex items-center">
+                        <Link
+                          href={link.href}
+                          onClick={(e) => handleLinkClick(e, link.href)}
+                          className="relative text-[13px] font-bold uppercase tracking-wider transition-colors py-1.5 text-slate-800 hover:text-primary group"
+                        >
+                          {link.name}
+                          <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                        </Link>
+                        {index < navLinks.length - 1 && (
+                          <div className="h-4 w-[1px] mx-4 lg:mx-5 bg-slate-300" />
+                        )}
+                      </div>
+                    ))}
+                  </nav>
+                </div>
+              </motion.div>
+
+              {/* Spacer to balance desktop layout while centered nav floats independently */}
+              <div className="hidden md:block w-[160px]" aria-hidden />
 
             <motion.button 
               initial={{ opacity: 0 }}
@@ -140,6 +175,7 @@ export default function Navbar() {
             >
               <Menu className="h-6 w-6 text-slate-900" />
             </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>

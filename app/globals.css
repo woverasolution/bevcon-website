@@ -205,6 +205,16 @@ body {
   @apply rounded-2xl overflow-hidden relative;
 }
 
+/* Hide scrollbars while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and legacy Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 /* Visual Feature Cards */
 .feature-icon {
   @apply w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center;
