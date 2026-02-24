@@ -70,19 +70,6 @@ He is a professional auditor in quality systems, maintenance, asset care, OPEX o
 // B-LEVEL – SENIOR EXPERTS
 const bLevelProfiles: NetworkProfile[] = [
   {
-    id: 'afework-legesse',
-    name: 'Afework Legesse',
-    role: 'Senior Project Manager',
-    level: 'B',
-    image: '/portraits/LegesseAfework_light.png',
-    imagePosition: 'center 20%',
-    teaserServices: 'Project Management · Construction · Engineering',
-    services: ['Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
-    fullProfile: `Afework Legesse is an experienced Project Manager with a strong background in industrial construction and engineering projects. He brings extensive expertise in managing complex site operations, coordinating multidisciplinary teams, and ensuring project delivery within quality, time, and budget constraints.
-    
-His experience spans various phases of project lifecycle from planning and design review to execution and handover. He is skilled in contract administration, stakeholder management, and technical supervision of civil and electromechanical works.`,
-  },
-  {
     id: 'andre-urdaneta',
     name: 'Andre Urdaneta',
     role: 'Automation & Process Control Expert',
