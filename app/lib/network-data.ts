@@ -108,23 +108,25 @@ On brewery-related projects, Bereket contributes to the coordination of industri
 Within BevCon, Bereket supports Beverage Construction and Beverage Concept assignments where architectural leadership and site coordination are needed to translate industrial layouts into practical, well-executed facilities. He also contributes to consulting assignments requiring reliable documentation, interface coordination, and strong construction-stage communication.`,
   },
   {
-    id: 'carlos-weinberger',
-    name: 'Carlos Weinberger',
+    id: 'senior-brewmaster',
+    name: 'Senior Brewmaster & Plant Manager',
     role: 'Senior Brewmaster & Plant Manager',
     level: 'B',
-    image: '/portraits/WeinbergerCarlos_light.png',
-    imagePosition: 'center 20%',
+    isAnonymous: true,
+    anonymousLabel: 'Senior Brewmaster & Plant Manager',
+    clickable: false,
+    // image removed for anonymity
     teaserServices: 'Large-scale brewery operations',
     services: ['Beverage Confidence', 'Beverage Construction', 'Beverage Consulting', 'Beverage Connect'],
-    fullProfile: `Carlos Weinberger is a senior brewmaster and plant manager with more than 35 years of international experience in industrial brewing and large-scale brewery leadership. He has held senior technical and operational management roles in high-capacity breweries across Latin America, Europe, Africa, Central Asia, and the Middle East, including sites with annual outputs exceeding 8 million hectolitres.
+    fullProfile: `A senior brewmaster and plant manager with more than 35 years of international experience in industrial brewing and large-scale brewery leadership. Has held senior technical and operational management roles in high-capacity breweries across multiple continents.
 
-His professional scope covers full end-to-end brewery operations, including brewing, fermentation, filtration, packaging interfaces, utilities coordination, quality systems, maintenance alignment, and organisational leadership. Carlos is frequently engaged in situations where operational stability and performance recovery are critical—such as post-commissioning ramp-up phases, rapid capacity expansion, operational restructuring, or persistent quality and efficiency challenges.
+Professional scope covers full end-to-end brewery operations, including brewing, fermentation, filtration, packaging interfaces, utilities coordination, quality systems, maintenance alignment, and organisational leadership. Frequently engaged in situations where operational stability and performance recovery are critical—such as post-commissioning ramp-up phases, rapid capacity expansion, operational restructuring, or persistent quality and efficiency challenges.
 
-A core strength of Carlos’ work lies in diagnosing complex operational issues and translating them into practical, executable improvement programmes. His experience includes brewhouse efficiency optimisation, fermentation and maturation stabilisation, loss reduction, packaging performance improvement, and the establishment of robust operational routines and KPI systems. He is particularly effective at embedding improvements into daily operations so that results remain sustainable beyond short-term interventions.
+A core strength lies in diagnosing complex operational issues and translating them into practical, executable improvement programmes. Experience includes brewhouse efficiency optimisation, fermentation and maturation stabilisation, loss reduction, packaging performance improvement, and the establishment of robust operational routines and KPI systems. Particularly effective at embedding improvements into daily operations so that results remain sustainable beyond short-term interventions.
 
-Carlos has led large, multicultural teams in demanding industrial environments, often under tight production, quality, and cost constraints. His leadership style combines strong brewing fundamentals with pragmatic management, focusing on clarity, accountability, and disciplined execution on the shop floor.
+Has led large, multicultural teams in demanding industrial environments, often under tight production, quality, and cost constraints. Leadership style combines strong brewing fundamentals with pragmatic management, focusing on clarity, accountability, and disciplined execution on the shop floor.
 
-Within BevCon, Carlos supports operational audits, ramp-up and stabilisation assignments, performance recovery programmes, and interim senior operations leadership. He provides hands-on, experience-driven support to management and production teams, helping large and complex breweries achieve stable quality, reliable output, and sustained performance.`,
+Within BevCon, supports operational audits, ramp-up and stabilisation assignments, performance recovery programmes, and interim senior operations leadership. Provides hands-on, experience-driven support to management and production teams, helping large and complex breweries achieve stable quality, reliable output, and sustained performance.`,
   },
   {
     id: 'christian-mueller',
@@ -202,7 +204,7 @@ Within BevCon, Hubert contributes to Beverage Concept and Beverage Construction 
     services: ['Beverage Confidence', 'Beverage Consulting', 'Beverage Control', 'Beverage Connect'],
     fullProfile: `Rainer Haag is a senior quality assurance and quality control expert with more than 40 years of international experience across food, beverage, brewing, and nutraceutical environments. He has led QA/QC teams, laboratories, and compliance programs in industrial settings and is valued for translating standards into practical systems that work on real production floors.
 
-Rainer’s expertise spans quality management systems, laboratory setup and leadership, analytical method validation, and certification readiness. He has strong experience with certification and audit frameworks including IFS Food, FSSC 22000, ISO 22000, GMP and HACCP, as well as additional compliance requirements such as Food Fraud/Food Defense programs and specialised certification environments (e.g., Kosher and others as required by market). He supports first-time certifications, re-certifications, and audit recovery situations where systems must be stabilised quickly and sustainably.
+Rainer's expertise spans quality management systems, laboratory setup and leadership, analytical method validation, and certification readiness. He has strong experience with certification and audit frameworks including IFS Food, FSSC 22000, ISO 22000, GMP and HACCP, as well as additional compliance requirements such as Food Fraud/Food Defense programs and specialised certification environments (e.g., Kosher and others as required by market). He supports first-time certifications, re-certifications, and audit recovery situations where systems must be stabilised quickly and sustainably.
 
 In addition to audits, Rainer supports operational quality improvement: shelf-life programs, incoming goods control, process hygiene optimisation, and training of laboratory and production teams. He is particularly effective at building routines, clarifying responsibilities, and establishing robust documentation and control plans without creating unnecessary bureaucracy.
 
@@ -288,7 +290,7 @@ His background includes senior leadership roles in foods (MEA), strategic consul
     services: ['Beverage Concept', 'Beverage Construction', 'Beverage Consulting', 'Beverage Confidence', 'Beverage Connect'],
     fullProfile: `This senior principal consultant and design engineer is a highly experienced brewery specialist with more than 25 years of international experience in the design, engineering, and execution of breweries, with a strong focus on craft and specialty operations. His background uniquely combines hands-on brewing leadership with deep engineering and design expertise, enabling him to support projects from early concept through commissioning and stable operation.
 
-He specialises in the conceptual and detailed design of breweries that balance European brewing traditions with modern process technology and the operational realities of today’s craft brewing industry. His work places strong emphasis on sustainability, energy efficiency, raw material optimisation, and brewer-centric layouts that support both quality and long-term operational efficiency. In addition, he is experienced in designing “transparent” breweries that integrate production, visitor experience, and brand storytelling.
+He specialises in the conceptual and detailed design of breweries that balance European brewing traditions with modern process technology and the operational realities of today's craft brewing industry. His work places strong emphasis on sustainability, energy efficiency, raw material optimisation, and brewer-centric layouts that support both quality and long-term operational efficiency. In addition, he is experienced in designing "transparent" breweries that integrate production, visitor experience, and brand storytelling.
 
 Beyond consulting and design, this expert has held senior operational and technical leadership roles in established breweries, including responsibility for brewing, packaging, product development, master planning, and large-scale expansion projects. Earlier in his career, he managed brewhouse projects internationally on the supplier side, giving him strong insight into OEM coordination, constructability, and commissioning risks.
 
