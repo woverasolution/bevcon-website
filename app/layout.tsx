@@ -23,7 +23,7 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.bevcon.net'),
   title: {
-    default: "BevCon – Built for Reality",
+    default: "BevCon – Beverage Consulting and Engineering GmbH",
     template: "%s | BevCon"
   },
   description: "BevCon partners with investors to plan, structure, and deliver beverage projects worldwide. Comprehensive consulting, construction, and confidence services for breweries and beverage facilities.",
@@ -52,12 +52,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.bevcon.net',
     siteName: 'BevCon',
-    title: 'BevCon – Built for Reality',
+    title: 'BevCon – Beverage Consulting and Engineering GmbH',
     description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide. Comprehensive consulting, construction, and confidence services for breweries and beverage facilities.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BevCon – Built for Reality',
+    title: 'BevCon – Beverage Consulting and Engineering GmbH',
     description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide.',
   },
   robots: {

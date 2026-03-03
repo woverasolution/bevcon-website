@@ -120,7 +120,7 @@ export default function Navbar() {
                   "text-[8px] sm:text-[9px] font-bold tracking-[0.25em] transition-all duration-300 ml-1 uppercase hidden xs:block sm:block",
                   "text-slate-500"
                 )}>
-                  Built for Reality
+                  Beverage Consulting and Engineering
                 </span>
               </Link>
             </motion.div>
@@ -232,7 +232,7 @@ export default function Navbar() {
                 
                 {/* Footer / Contact Info in Drawer */}
                 <div className="mt-auto p-6 bg-slate-50 border-t border-slate-100">
-                   <p className="text-xs text-slate-400 font-medium uppercase tracking-widest mb-2">Built for Reality</p>
+                   <p className="text-xs text-slate-400 font-medium uppercase tracking-widest mb-2">Beverage Consulting and Engineering</p>
                    <p className="text-sm text-slate-500">Global Beverage Engineering</p>
                 </div>
               </div>
