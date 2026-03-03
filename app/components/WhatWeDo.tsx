@@ -24,14 +24,14 @@ const services = [
   },
   {
     title: "Construction",
-    description: "Project execution, engineering oversight, and delivery.",
+    description: "Turnkey EPC project execution, engineering oversight, and delivery.",
     icon: HardHat,
     id: "construction",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     title: "Contracts",
-    description: "FIDIC administration, claims management, and dispute resolution.",
+    description: "FIDIC administration for EPC and EPCM contracts, claims management, and dispute resolution.",
     icon: FileText,
     id: "contracts",
     className: "md:col-span-1 md:row-span-1",
@@ -114,7 +114,7 @@ export default function WhatWeDo() {
               What We Do
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light leading-relaxed px-4">
-              We turn the complexities of the beverage industry into clear advantages by handling the important <span className="font-semibold text-[#ffbb3a]">C's</span> related to your project.
+              As your turnkey EPC and EPCM engineering partner, we turn the complexities of the brewery and beverage industry into clear advantages by handling the important <span className="font-semibold text-[#ffbb3a]">C&apos;s</span> related to your project.
             </p>
           </motion.div>
         </div>

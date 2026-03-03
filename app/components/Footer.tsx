@@ -35,7 +35,7 @@ export default function Footer() {
               className="h-7 sm:h-8 md:h-9 w-auto"
             />
             <p className="text-xs sm:text-sm leading-relaxed max-w-xs text-slate-300">
-              Partnering with investors to deliver next-generation beverage projects worldwide.
+              German EPC and EPCM engineering partner delivering turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean.
             </p>
           </div>
 

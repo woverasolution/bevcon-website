@@ -50,10 +50,10 @@ export default function CTASection() {
               className="h-8 sm:h-10 md:h-12 w-auto mb-6 sm:mb-8 mx-auto"
             />
             <h2 className="text-3xl sm:text-4xl font-semibold leading-tight mb-4 sm:mb-6">
-              Ready to transform your beverage project?
+              Ready to transform your brewery or beverage plant project?
             </h2>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 sm:mb-10 max-w-2xl mx-auto">
-              Partner with BevCon to plan, structure, and deliver your next beverage facility with confidence. From concept to operation, we bring the engineering expertise and project discipline that investors trust.
+              Partner with BevCon — your German EPC and EPCM engineering partner — to plan, structure, and deliver your next turnkey brewery or beverage plant with confidence. From concept to operation across Africa, Asia, and the Caribbean, we bring the engineering expertise and project discipline that investors trust.
             </p>
             <motion.a
               href="mailto:bier@bevcon.net"

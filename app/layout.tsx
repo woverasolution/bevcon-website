@@ -23,21 +23,25 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.bevcon.net'),
   title: {
-    default: "BevCon – Beverage Consulting and Engineering GmbH",
+    default: "BevCon – German Brewery & Beverage EPC Engineering | Turnkey Projects Worldwide",
     template: "%s | BevCon"
   },
-  description: "BevCon partners with investors to plan, structure, and deliver beverage projects worldwide. Comprehensive consulting, construction, and confidence services for breweries and beverage facilities.",
+  description: "BevCon is a German EPC contractor and EPCM engineering partner delivering turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean. From feasibility to commissioning — independent consulting, construction management, and FIDIC contract administration.",
   keywords: [
+    "EPC contractor brewery",
+    "EPCM beverage plant engineering",
+    "turnkey brewery construction",
+    "German brewery engineering",
+    "beverage project Africa",
+    "beverage project Asia",
+    "beverage project Caribbean",
+    "FIDIC contract administration",
+    "brewery feasibility study",
     "beverage consulting",
-    "brewery construction",
+    "brewery construction management",
     "beverage facility planning",
-    "brewery consulting",
-    "beverage project management",
-    "brewery engineering",
-    "beverage industry experts",
-    "brewery design",
-    "beverage production",
-    "turnkey beverage projects"
+    "turnkey beverage plant",
+    "independent engineering partner"
   ],
   authors: [{ name: "BevCon" }],
   creator: "BevCon",
@@ -52,13 +56,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.bevcon.net',
     siteName: 'BevCon',
-    title: 'BevCon – Beverage Consulting and Engineering GmbH',
-    description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide. Comprehensive consulting, construction, and confidence services for breweries and beverage facilities.',
+    title: 'BevCon – German Brewery & Beverage EPC Engineering | Turnkey Projects Worldwide',
+    description: 'BevCon is a German EPC contractor and EPCM engineering partner delivering turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BevCon – Beverage Consulting and Engineering GmbH',
-    description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide.',
+    title: 'BevCon – German Brewery & Beverage EPC Engineering | Turnkey Projects Worldwide',
+    description: 'BevCon is a German EPC contractor and EPCM engineering partner delivering turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean.',
   },
   robots: {
     index: true,
@@ -94,26 +98,95 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'BevCon',
-    url: 'https://www.bevcon.net',
-    logo: 'https://www.bevcon.net/logos/DARK%20BG%20LOGO.svg',
-    description: 'BevCon partners with investors to plan, structure, and deliver beverage projects worldwide.',
-    sameAs: [
-      // Add social media URLs here when available
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'Business Inquiries',
-      availableLanguage: ['English'],
-    },
-    areaServed: 'Worldwide',
-    serviceType: [
-      'Beverage Consulting',
-      'Brewery Construction',
-      'Beverage Facility Planning',
-      'Project Management',
-      'Engineering Services',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://www.bevcon.net/#organization',
+        name: 'BevCon',
+        legalName: 'BevCon – Beverage Consulting and Engineering GmbH',
+        url: 'https://www.bevcon.net',
+        logo: 'https://www.bevcon.net/logos/DARK%20BG%20LOGO.svg',
+        description: 'German EPC contractor and EPCM engineering partner delivering turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean.',
+        foundingLocation: {
+          '@type': 'Place',
+          name: 'Hamburg, Germany',
+        },
+        areaServed: [
+          { '@type': 'Continent', name: 'Africa' },
+          { '@type': 'Continent', name: 'Asia' },
+          { '@type': 'Place', name: 'Caribbean' },
+        ],
+        knowsAbout: [
+          'EPC contracting',
+          'EPCM engineering',
+          'Turnkey brewery construction',
+          'Beverage plant engineering',
+          'FIDIC contract administration',
+          'Brewery feasibility studies',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'Business Inquiries',
+          availableLanguage: ['English', 'German'],
+        },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://www.bevcon.net/#website',
+        url: 'https://www.bevcon.net',
+        name: 'BevCon',
+        publisher: { '@id': 'https://www.bevcon.net/#organization' },
+      },
+      {
+        '@type': 'ProfessionalService',
+        '@id': 'https://www.bevcon.net/#service',
+        name: 'BevCon – Brewery & Beverage EPC Engineering',
+        provider: { '@id': 'https://www.bevcon.net/#organization' },
+        serviceType: [
+          'EPC Contracting',
+          'EPCM Engineering',
+          'Turnkey Brewery Construction',
+          'Beverage Plant Feasibility Studies',
+          'FIDIC Contract Administration',
+          'Construction Management',
+          'Independent Engineering Consulting',
+        ],
+        areaServed: [
+          { '@type': 'Continent', name: 'Africa' },
+          { '@type': 'Continent', name: 'Asia' },
+          { '@type': 'Place', name: 'Caribbean' },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://www.bevcon.net/#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What is a turnkey EPC brewery project?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A turnkey EPC (Engineering, Procurement, Construction) brewery project is a delivery model where a single contractor takes responsibility for the complete design, procurement, construction, and commissioning of a brewery or beverage plant. BevCon acts as the independent engineering partner representing the investor throughout this process.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What regions does BevCon serve for brewery and beverage projects?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'BevCon delivers turnkey brewery and beverage plant projects across Africa, Asia, and the Caribbean, bringing German engineering discipline and independent EPCM expertise to emerging and established markets worldwide.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the difference between EPC and EPCM in beverage plant engineering?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'In EPC, a single contractor assumes full responsibility for engineering, procurement, and construction under a lump-sum contract. In EPCM, the engineering partner manages these activities on behalf of the investor, providing greater transparency and control. BevCon provides independent EPCM services and represents investors in EPC contracts.',
+            },
+          },
+        ],
+      },
     ],
   };
 

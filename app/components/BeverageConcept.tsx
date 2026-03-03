@@ -13,7 +13,7 @@ const conceptPillars = [
   {
     icon: TrendingUp,
     title: "Market Strategy",
-    description: "Demand realism, pricing logic, and achievable market positioning tailored to your geography."
+    description: "Demand realism, pricing logic, and achievable market positioning tailored to Africa, Asia, and the Caribbean."
   },
   {
     icon: Landmark,

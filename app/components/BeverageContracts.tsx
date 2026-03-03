@@ -36,7 +36,7 @@ export default function BeverageContracts() {
                 <span className="block text-[#ffbb3a]">Contracts</span>
               </h2>
               <p className="mt-6 text-lg lg:text-xl text-slate-600 leading-relaxed">
-                FIDIC contracts optimised for beverage plants. We go beyond drafting — assuming defined contractual roles from award through final acceptance.
+                FIDIC contracts optimised for turnkey EPC brewery and beverage plant projects. We go beyond drafting — assuming defined contractual roles from award through final acceptance.
               </p>
             </motion.div>
 
@@ -61,7 +61,7 @@ export default function BeverageContracts() {
                     Employer&apos;s Representative
                   </h3>
                   <p className="text-slate-500 mt-1.5 text-sm lg:text-base leading-relaxed">
-                    Safeguarding your interests in turnkey projects. No neutrality — enforcing agreed risk allocation with contractual discipline.
+                    Safeguarding your interests in EPC brewery and turnkey beverage plant projects. No neutrality — enforcing agreed risk allocation with contractual discipline.
                   </p>
                 </div>
               </motion.div>

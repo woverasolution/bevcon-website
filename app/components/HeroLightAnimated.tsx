@@ -99,7 +99,7 @@ export default function HeroLightAnimated() {
         >
            <Image
             src="/images/beverage-visual-01.png"
-            alt="Beverage Concept Visual"
+            alt="BevCon turnkey brewery and beverage plant engineering"
             fill
             priority
             sizes="(min-width: 1024px) 55vw, 100vw"
@@ -121,7 +121,7 @@ export default function HeroLightAnimated() {
           <div className="inline-flex items-center gap-2 sm:gap-3 pl-0 pr-3 sm:pr-4 py-1">
             <span className="h-[1px] w-6 sm:w-8 bg-[#ffbb3a]"></span>
             <span className="text-xs sm:text-sm font-medium tracking-[0.15em] sm:tracking-[0.2em] text-[#455660] uppercase">
-              Global Beverage Engineering
+              German Beverage & Brewery Engineering
             </span>
           </div>
 
@@ -138,8 +138,8 @@ export default function HeroLightAnimated() {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#455660]/80 md:text-lg lg:text-xl font-light leading-relaxed max-w-lg">
-            We partner with investors to plan, structure, and deliver beverage projects worldwide.
-            <span className="block mt-2 font-medium text-[#455660]">Precision engineering. Executive confidence.</span>
+            Your independent EPC and EPCM engineering partner — planning, structuring, and delivering turnkey brewery and beverage projects across Africa, Asia, and the Caribbean.
+            <span className="block mt-2 font-medium text-[#455660]">German precision engineering. Executive confidence.</span>
           </p>
 
           {/* Buttons */}
@@ -167,7 +167,7 @@ export default function HeroLightAnimated() {
           <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden rounded-2xl border border-[#455660]/10 shadow-[0_24px_60px_-32px_rgba(69,86,96,0.5)]">
             <Image
               src="/images/beverage-visual-01.png"
-              alt="Beverage Concept Visual"
+              alt="BevCon turnkey brewery and beverage plant engineering"
               fill
               className="absolute inset-0 w-full h-full object-cover object-center"
               sizes="(max-width: 1024px) 95vw"

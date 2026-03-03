@@ -131,7 +131,7 @@ export default function BeverageConstruction() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl font-semibold text-[#ffbb3a]"
               >
-                From Concept to Operational Handover
+                Turnkey EPC Delivery — From Concept to Operational Handover
               </motion.p>
 
               {/* Description */}
@@ -142,7 +142,7 @@ export default function BeverageConstruction() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed"
               >
-                We deliver beverage projects from concept to handover. As your independent engineering partner, we bring structure and execution discipline to complex plants, protecting your interests in cost, time, and quality.
+                We deliver turnkey brewery and beverage plant projects from concept to handover. As your independent EPCM engineering partner, we bring German engineering discipline and structured execution to complex plants across Africa, Asia, and the Caribbean — protecting your interests in cost, time, and quality.
               </motion.p>
 
               {/* Timeline Strip */}
